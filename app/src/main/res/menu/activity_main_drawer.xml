@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/maktbtiplus"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:title="مكتبتي بلس" />
+        <item
+            android:id="@+id/webside"
+            android:icon="@drawable/ic_web"
+            android:title="موقعنا الإكتروني" />
+        <item
+            android:id="@+id/facegroub"
+            android:icon="@drawable/ic_group"
+            android:title="جروبنا علي الفيس بوك" />
+        <item
+            android:id="@+id/tele"
+            android:icon="@drawable/test_ico"
+            android:title="جروبنا علي التليجرام" />
+        <item
+            android:id="@+id/ratee"
+            android:icon="@drawable/ic_star"
+            android:title="تقييم التطبيق" />
+        <item
+            android:id="@+id/shareee"
+            android:icon="@drawable/ic_menu_share"
+            android:title="مشاركه التطبيق" />
+        <item
+            android:id="@+id/appshare2"
+            android:icon="@drawable/ic_menu_send"
+            android:title="مشاركة التطبيق على الفيسبوك" />
+        <item
+            android:id="@+id/mass"
+            android:icon="@drawable/ic_message"
+            android:title="تقديم اقتراح" />
+
+        <item
+            android:id="@+id/about"
+            android:icon="@drawable/icon_e"
+            android:title="عن التطبيق" />
+
+    </group>
+
+</menu>

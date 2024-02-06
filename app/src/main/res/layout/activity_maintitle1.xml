@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+     android:layout_height="match_parent"
+    tools:context=".Maintitle1">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_weight="3"
+        android:background="@drawable/background_newkids"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    app:cardBackgroundColor="#F0F0F0"
+                    app:cardElevation="10dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardUseCompatPadding="true"
+                    android:layout_height="wrap_content">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="80dp"
+                        app:cardUseCompatPadding="true"
+                        app:cardBackgroundColor="#FFF7F7"
+                        app:cardElevation="9dp"
+                        android:layout_margin="1dp"
+                        android:layout_height="80dp">
+                        <ImageView
+                            android:id="@+id/iconnn"
+                            android:layout_width="wrap_content"
+                            android:src="@drawable/icon_a"
+                            android:layout_height="wrap_content" />
+                    </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    app:cardElevation="8dp"
+                    app:cardCornerRadius="5dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardUseCompatPadding="true"
+                    android:layout_height="wrap_content">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        app:cardElevation="5dp"
+                        app:cardUseCompatPadding="true"
+                        android:layout_margin="2dp"
+                        app:cardBackgroundColor="@color/blue_grey_inactive"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:orientation="vertical"
+                            android:layout_height="match_parent">
+                             <TextView
+                                android:id="@+id/t1"
+                                 android:textColor="#ffffff"
+                                 android:shadowColor="#000"
+                                 android:shadowDx="2"
+                                 android:shadowDy="2"
+                                 android:shadowRadius="2"
+                                android:layout_margin="5dp"
+                                android:textSize="25sp"
+                                 android:lineSpacingExtra="5dp"
+                                android:textStyle="italic"
+                                android:layout_width="match_parent"
+                                android:gravity="center"
+                                android:layout_height="wrap_content" />
+                              <TextView
+                                android:id="@+id/t2"
+                                android:layout_margin="5dp"
+                                  android:textColor="#ffffff"
+                                  android:shadowColor="#000"
+                                  android:shadowDx="2"
+                                  android:textSize="25sp"
+                                  android:shadowDy="2"
+                                  android:shadowRadius="2"
+                                android:textStyle="italic"
+                                 android:lineSpacingExtra="5dp"
+                                android:layout_width="match_parent"
+                                 android:gravity="center"
+                                android:layout_height="wrap_content" />
+                               <TextView
+                                android:id="@+id/t3"
+                                android:layout_margin="5dp"
+                                   android:textColor="#ffffff"
+                                   android:shadowColor="#000"
+                                   android:shadowDx="2"
+                                   android:textSize="25sp"
+                                   android:shadowDy="2"
+                                   android:shadowRadius="2"
+                                   android:lineSpacingExtra="5dp"
+                                android:textStyle="italic"
+                                android:layout_width="match_parent"
+                                 android:gravity="center"
+                                android:layout_height="wrap_content" />
+                               <TextView
+                                android:id="@+id/t4"
+                                android:layout_margin="5dp"
+                                   android:textSize="25sp"
+                                   android:textColor="#ffffff"
+                                   android:shadowColor="#000"
+                                   android:shadowDx="2"
+                                   android:shadowDy="2"
+                                   android:shadowRadius="2"
+                                   android:lineSpacingExtra="5dp"
+                                android:textStyle="italic"
+                                android:layout_width="match_parent"
+                                android:gravity="center"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adstitle1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/Banner1"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+    </com.google.android.gms.ads.AdView>
+</LinearLayout>

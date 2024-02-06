@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/cards"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="2dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="#F7E9E9"
+     android:layout_height="60dp"
+    android:background="@drawable/selector">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:orientation="horizontal"
+       android:background="#F7E9E9"
+       android:layout_height="match_parent">
+
+       <ImageView
+           android:id="@+id/imageView2"
+           android:layout_width="40dp"
+          android:layout_margin="3dp"
+           android:layout_gravity="center"
+            android:layout_height="40dp"
+           app:srcCompat="@drawable/unbookmark" />
+
+       <TextView
+           android:id="@+id/texttt"
+            android:layout_centerVertical="true"
+           android:layout_centerHorizontal="true"
+           android:gravity="center"
+           android:textSize="18sp"
+           android:textColor="#7E0808"
+           android:textStyle="bold"
+           android:layout_gravity="center"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"
+           android:text="TextView" />
+       <net.steamcrafted.materialiconlib.MaterialIconView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:scaleType="center"
+           app:materialIcon="arrow_left"
+           android:layout_gravity="center"
+           app:materialIconColor="#680606"
+           app:materialIconSize="20dp" />
+   </LinearLayout>
+
+</androidx.cardview.widget.CardView>
