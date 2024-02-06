@@ -33,7 +33,7 @@
 
 
 ## روابط لتحميل التطبيق :
- - [للأندرويد](https://play.google.com/store/apps/details?id=com.App.Thawab) 
+ - [للأندرويد](https://play.google.com/store/apps/details?id=com.App.Thwaap) 
  - [للهواوي](https://appgallery.huawei.com/#/app/C102854345) 
 
 
