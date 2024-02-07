@@ -17,7 +17,7 @@
         android:largeScreens="true"
         android:normalScreens="true"
         android:roundIcon="@mipmap/icon_finsh"
-        android:supportsRtl="true"
+        android:supportsRtl="false"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:supportsRtl"

@@ -16,7 +16,7 @@ import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 
 public class Splash extends AppCompatActivity {
-    private static final int SPLASH_TIME_OUT = 5000;
+    private static final int SPLASH_TIME_OUT = 2500;
     Shimmer shimmer;
     TextView textcon1;
     private ShimmerTextView textth;
