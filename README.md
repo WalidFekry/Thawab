@@ -34,7 +34,8 @@
 
 ## روابط لتحميل التطبيق :
  - [للأندرويد](https://play.google.com/store/apps/details?id=com.App.Thwaap) 
- - [للهواوي](https://appgallery.huawei.com/#/app/C102854345) 
+ - [للهواوي](https://appgallery.huawei.com/#/app/C102854345)
+-  [للسامسونج](https://galaxystore.samsung.com/detail/com.App.Thwaap) 
 
 
 # Walid Fekry
