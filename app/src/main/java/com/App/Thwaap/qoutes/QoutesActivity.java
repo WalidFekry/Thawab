@@ -50,9 +50,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+
 
 public class QoutesActivity extends BaseActivity implements Adaptersada.OnMessengerClick {
     public static final int PERMISSION_CODE = 6458;
@@ -61,7 +59,6 @@ public class QoutesActivity extends BaseActivity implements Adaptersada.OnMessen
     List<new_item_post> list2;
     String name = "https://post.walid-fekry.com/auto_notification/auto_notification_apps/api_post_apps.php";
     ProgressBar progressBar;
-    @BindView(R.id.adsContainer)
     LinearLayout adsContainer;
     private String post;
     private AppCompatImageButton back;
@@ -76,7 +73,7 @@ public class QoutesActivity extends BaseActivity implements Adaptersada.OnMessen
         setContentView(R.layout.activity_qoutes);
         back = findViewById(R.id.back_button);
         back.setOnClickListener((v) -> finish());
-        setUnBinder(ButterKnife.bind(this));
+        adsContainer = findViewById(R.id.adsContainer);
         setUpAds();
         getHandler().postDelayed(this::LoadAds, 4000);
         boolean connected = false;
@@ -166,11 +163,6 @@ public class QoutesActivity extends BaseActivity implements Adaptersada.OnMessen
         } catch (JSONException e) {
             e.printStackTrace();
         }
-    }
-
-    @OnClick(R.id.back_button)
-    void onBackButtonClick() {
-        onBackPressed();
     }
 
     @Override
