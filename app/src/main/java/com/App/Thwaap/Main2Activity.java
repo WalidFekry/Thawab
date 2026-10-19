@@ -161,14 +161,14 @@ public class Main2Activity extends BaseActivity
         } else if (id == R.id.facegroub) {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/groups/440403217380641")));
         } else if (id == R.id.ratee) {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.co/4VQlA6AZrH")));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.App.Thwaap")));
         } else if (id == R.id.shareee) {
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
             sendIntent.putExtra(Intent.EXTRA_SUBJECT, " تطبيق ثواب (Thawap) ");
             sendIntent.putExtra(Intent.EXTRA_TEXT, "\n" +
                     "قمنا بتصميم البرنامج ليكون بسيط و مجاني ليضم أذكار الصباح و المساء مكتوبة و أذكار المسلم بدون إنترنت و ليساعدك على أن لا تنسى ذكر الله ابداً .\n \n" +
-                    "تفضل رابط تطبيق ثواب  https://t.co/4VQlA6AZrH \n");
+                    "تفضل رابط تطبيق ثواب  https://play.google.com/store/apps/details?id=com.App.Thwaap \n");
             sendIntent.setType("text/plain");
             startActivity(Intent.createChooser(sendIntent, "مشاركه تطبيق ثواب  مع الاصدقاء:"));
 

@@ -52,6 +52,11 @@ public class MainActivity extends AppCompatActivity
     private final ActivityResultLauncher<String> requestPermissionLauncherNotification =
             registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
                 isPermission = isGranted;
+                if (!isGranted && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
+                        showPermissionDialog();
+                    }
+                }
             });
 
     @Override
@@ -254,22 +259,21 @@ public class MainActivity extends AppCompatActivity
         FirebaseMessaging.getInstance().subscribeToTopic("all");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            cheakNotificationPermission();
+            checkNotificationPermission();
         }
     }
 
-    private void cheakNotificationPermission() {
+    private void checkNotificationPermission() {
         if (!isPermission) {
-            requestPermissionsNotfication();
+            requestPermissionsNotification();
         }
     }
 
-    private void requestPermissionsNotfication() {
+    private void requestPermissionsNotification() {
         if (ContextCompat.checkSelfPermission(this, permission[0]) == PackageManager.PERMISSION_GRANTED) {
             isPermission = true;
         } else {
             requestPermissionLauncherNotification.launch(permission[0]);
-            showPermissionDialog();
         }
     }
 
@@ -319,7 +323,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.facegroub) {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/groups/440403217380641")));
         } else if (id == R.id.ratee) {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.co/4VQlA6AZrH")));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.App.Thwaap")));
         } else if (id == R.id.maktbtiplus) {
             Intent i = new Intent(Intent.ACTION_VIEW);
             i.setData(Uri.parse("https://walid-fekry.com/maktbti-plus/"));
@@ -332,7 +336,7 @@ public class MainActivity extends AppCompatActivity
             sendIntent.putExtra(Intent.EXTRA_SUBJECT, " تطبيق ثواب (Thawap) ");
             sendIntent.putExtra(Intent.EXTRA_TEXT, "\n" +
                     "قمنا بتصميم البرنامج ليكون بسيط و مجاني ليضم أذكار الصباح و المساء مكتوبة و أذكار المسلم بدون إنترنت و ليساعدك على أن لا تنسى ذكر الله ابداً .\n \n" +
-                    "تفضل رابط تطبيق ثواب  https://t.co/4VQlA6AZrH \n");
+                    "تفضل رابط تطبيق ثواب  https://play.google.com/store/apps/details?id=com.App.Thwaap \n");
             sendIntent.setType("text/plain");
             startActivity(Intent.createChooser(sendIntent, "مشاركه تطبيق ثواب  مع الاصدقاء:"));
 

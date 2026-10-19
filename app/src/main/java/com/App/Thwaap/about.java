@@ -94,7 +94,7 @@ public class about extends AppCompatActivity {
                 sendIntent.putExtra(Intent.EXTRA_SUBJECT," تطبيق ثواب (Thawap) ");
                 sendIntent.putExtra(Intent.EXTRA_TEXT,"\n" +
                         "قمنا بتصميم البرنامج ليكون بسيط و مجاني ليضم أذكار الصباح و المساء مكتوبة و أذكار المسلم بدون إنترنت و ليساعدك على أن لا تنسى ذكر الله ابداً .\n \n" +
-                        "تفضل رابط تطبيق ثواب  https://t.co/4VQlA6AZrH \n");
+                        "تفضل رابط تطبيق ثواب  https://play.google.com/store/apps/details?id=com.App.Thwaap \n");
                 sendIntent.setType("text/plain");
                 startActivity(Intent.createChooser(sendIntent,"مشاركه تطبيق ثواب  مع الاصدقاء:"));
 
@@ -109,7 +109,7 @@ public class about extends AppCompatActivity {
         rratec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.co/4VQlA6AZrH" )));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.App.Thwaap" )));
 
             }
         });

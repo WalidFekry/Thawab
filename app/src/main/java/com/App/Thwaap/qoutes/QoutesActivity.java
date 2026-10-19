@@ -1,12 +1,13 @@
 package com.App.Thwaap.qoutes;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.Context;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,7 +26,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.App.Thwaap.R;
 import com.App.Thwaap.base.BaseActivity;
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
@@ -34,10 +34,7 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
-import com.google.firebase.database.annotations.NotNull;
 import com.rahman.dialog.Activity.SmartDialog;
-import com.rahman.dialog.ListenerCallBack.SmartDialogClickListener;
-import com.rahman.dialog.Utilities.SmartDialogBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -50,18 +47,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 public class QoutesActivity extends BaseActivity implements Adaptersada.OnMessengerClick {
-    public static final int PERMISSION_CODE = 6458;
-    private final String TAG = "no";
-    RecyclerView rec2;
-    List<new_item_post> list2;
-    String name = "https://post.walid-fekry.com/auto_notification/auto_notification_apps/api_post_apps.php";
-    ProgressBar progressBar;
-    LinearLayout adsContainer;
-    private String post;
-    private AppCompatImageButton back;
+    private final String TAG = "QoutesActivity";
+    private RecyclerView rec2;
+    private List<new_item_post> list2;
+    private final String name = "https://post.walid-fekry.com/auto_notification/auto_notification_apps/api_post_apps.php";
+    private LinearLayout adsContainer;
     private InterstitialAd mInterstitialAd;
 
     @Override
@@ -71,31 +62,20 @@ public class QoutesActivity extends BaseActivity implements Adaptersada.OnMessen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_qoutes);
-        back = findViewById(R.id.back_button);
-        back.setOnClickListener((v) -> finish());
+
+        AppCompatImageButton back = findViewById(R.id.back_button);
+        if (back != null) {
+            back.setOnClickListener(v -> finish());
+        }
+
         adsContainer = findViewById(R.id.adsContainer);
         setUpAds();
         getHandler().postDelayed(this::LoadAds, 4000);
-        boolean connected = false;
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
-                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
-            connected = true;
-        } else {
-            new SmartDialogBuilder(QoutesActivity.this)
-                    .setTitle("ملاحظه")
-                    .setSubTitle("لمزيد من الرسائل المتجدده يوميا تاكد انك متصل با الانترنت")
-                    .setCancalable(false)
-                    .setTitleFont(Typeface.createFromAsset(getAssets(), "jazeera.ttf")) //set title font
-                    .setSubTitleFont(Typeface.createFromAsset(getAssets(), "jazeera.ttf")) //set sub title font
-                    .setNegativeButtonHide(true) //hide cancel button
-                    .setPositiveButton("ok", new SmartDialogClickListener() {
-                        @Override
-                        public void onClick(SmartDialog smartDialog) {
-                            smartDialog.dismiss();
-                        }
-                    }).build().show();
+
+        if (!isNetworkConnected()) {
+            Toast.makeText(this, "لمزيد من الرسائل المتجدده يوميا تاكد انك متصل بالانترنت", Toast.LENGTH_LONG).show();
         }
+
         rec2 = findViewById(R.id.rec2);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         rec2.setLayoutManager(mLayoutManager);
@@ -103,47 +83,54 @@ public class QoutesActivity extends BaseActivity implements Adaptersada.OnMessen
         mLayoutManager.setStackFromEnd(true);
         LayoutAnimationController animation = AnimationUtils.loadLayoutAnimation(getApplicationContext(), R.anim.layout_anmation);
         rec2.setLayoutAnimation(animation);
+
         new DownloadTask().execute(name);
     }
 
-
+    private boolean isNetworkConnected() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivityManager == null) return false;
+        Network network = connectivityManager.getActiveNetwork();
+        if (network == null) return false;
+        NetworkCapabilities capabilities = connectivityManager.getNetworkCapabilities(network);
+        return capabilities != null && (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
+                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
+                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET));
+    }
 
     private void setUpAds() {
         AdView adView = findViewById(R.id.rsttfal);
-        adsContainer.setVisibility(View.VISIBLE);
+        if (adsContainer != null) {
+            adsContainer.setVisibility(View.VISIBLE);
+        }
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
+        MobileAds.initialize(this, initializationStatus -> {});
         AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
+        if (adView != null) {
+            adView.loadAd(adRequest);
+        }
 
         InterstitialAd.load(this, getString(R.string.Biny1), adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-                        // The mInterstitialAd reference will be null until
-                        // an ad is loaded.
                         mInterstitialAd = interstitialAd;
                         Log.i(TAG, "onAdLoaded");
                     }
 
                     @Override
                     public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        // Handle the error
                         Log.i(TAG, loadAdError.getMessage());
                         mInterstitialAd = null;
                     }
                 });
     }
 
-    private void LoadAds(){
+    private void LoadAds() {
         if (mInterstitialAd != null) {
             mInterstitialAd.show(QoutesActivity.this);
         } else {
-            Log.d("TAG", "The interstitial ad wasn't ready yet.");
+            Log.d(TAG, "The interstitial ad wasn't ready yet.");
         }
     }
 
@@ -152,13 +139,17 @@ public class QoutesActivity extends BaseActivity implements Adaptersada.OnMessen
             JSONObject response = new JSONObject(result);
             JSONArray post = response.optJSONArray("post");
             list2 = new ArrayList<>();
-            for (int i = 0; i < post.length(); i++) {
-                JSONObject posts = post.optJSONObject(i);
-                String title = posts.getString("title");
-                String imageurl = posts.getString("imageurl");
-                int id = posts.getInt("id");
-                String createdAt = posts.getString("created_at");
-                list2.add(new new_item_post(title, imageurl, id, createdAt));
+            if (post != null) {
+                for (int i = 0; i < post.length(); i++) {
+                    JSONObject posts = post.optJSONObject(i);
+                    if (posts != null) {
+                        String title = posts.optString("title");
+                        String imageurl = posts.optString("imageurl");
+                        int id = posts.optInt("id");
+                        String createdAt = posts.optString("created_at");
+                        list2.add(new new_item_post(title, imageurl, id, createdAt));
+                    }
+                }
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -167,19 +158,13 @@ public class QoutesActivity extends BaseActivity implements Adaptersada.OnMessen
 
     @Override
     public void onMessengerItemClick(new_item_post item) {
-
     }
 
-
-    public class DownloadTask extends AsyncTask<String, Void, Integer> {
-        @Override
-        protected void onPreExecute() {
-//            progressBar.setVisibility(View.VISIBLE);
-        }
-
+    @SuppressWarnings("deprecation")
+    private class DownloadTask extends AsyncTask<String, Void, Integer> {
         @Override
         protected Integer doInBackground(String... params) {
-            Integer result = 0;
+            int result = 0;
             HttpURLConnection urlConnection;
             try {
                 URL url = new URL(params[0]);
@@ -193,20 +178,18 @@ public class QoutesActivity extends BaseActivity implements Adaptersada.OnMessen
                         response.append(line);
                     }
                     parseResult(response.toString());
-                    result = 1; // Successful
-                } else {
-                    result = 0; //"Failed to fetch data!";
+                    result = 1;
                 }
             } catch (Exception e) {
-                Log.d(TAG, e.getLocalizedMessage());
+                Log.d(TAG, e.getMessage() != null ? e.getMessage() : "Error");
             }
-            return result; //"Failed to fetch data!";
+            return result;
         }
 
         @Override
         protected void onPostExecute(Integer result) {
-//            progressBar.setVisibility(View.GONE);
-            if (result == 1) {
+            if (isFinishing() || isDestroyed()) return;
+            if (result == 1 && list2 != null && !list2.isEmpty()) {
                 Adaptersada adaptersada = new Adaptersada(list2, QoutesActivity.this);
                 rec2.setAdapter(adaptersada);
             } else {
@@ -253,9 +236,7 @@ public class QoutesActivity extends BaseActivity implements Adaptersada.OnMessen
                 list2.add(new new_item_post(getResources().getString(R.string.staticvalue)));
                 Adaptersada adapter2 = new Adaptersada(list2, QoutesActivity.this);
                 rec2.setAdapter(adapter2);
-                Toast.makeText(QoutesActivity.this, "توجد مشكله با الاتصال تاكد ان الانترنت متاح لديك ", Toast.LENGTH_SHORT).show();
             }
         }
     }
-
 }

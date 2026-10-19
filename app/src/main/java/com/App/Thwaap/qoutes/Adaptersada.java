@@ -77,14 +77,14 @@ public class Adaptersada  extends RecyclerView.Adapter<Adaptersada.holder2> {
             sendIntent.setAction(Intent.ACTION_SEND);
             sendIntent.putExtra(Intent.EXTRA_SUBJECT," تطبيق  (Thawap) ");
             sendIntent.putExtra(Intent.EXTRA_TEXT,list2.get(possition).getTitle()+ "\n"+
-                    "تم النسخ من تطبيق ثواب 💙 👇 https://t.co/4VQlA6AZrH \n");
+                    "تم النسخ من تطبيق ثواب 💙 👇 https://play.google.com/store/apps/details?id=com.App.Thwaap \n");
             sendIntent.setType("text/plain");
             context.startActivity(Intent.createChooser(sendIntent,"مشاركه نصوص من  تطبيق ثواب :"));
         });
         holder2.starquran.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.co/4VQlA6AZrH")));
+                context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.App.Thwaap")));
             }
         });
 

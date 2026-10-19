@@ -21,122 +21,103 @@ import net.steamcrafted.materialiconlib.MaterialIconView;
 import java.util.List;
 
 public class Adapterpage2 extends PagerAdapter {
-    public int n=0;
-
-    List<item_pager2>list2;
-    Context context;
+    public int n = 0;
+    private List<item_pager2> list2;
+    private Context context;
+    private static Typeface cachedTypeface;
 
     public Adapterpage2(List<item_pager2> list2, Context context) {
         this.list2 = list2;
         this.context = context;
+        if (cachedTypeface == null && context != null) {
+            cachedTypeface = Typeface.createFromAsset(context.getAssets(), "6.otf");
+        }
     }
-
-    LayoutInflater inflater;
-
-    Typeface typeface;
 
     public Adapterpage2(Context context) {
         this.context = context;
+        if (cachedTypeface == null && context != null) {
+            cachedTypeface = Typeface.createFromAsset(context.getAssets(), "6.otf");
+        }
     }
-
 
     @Override
     public int getCount() {
-        return list2.size();
-
-
-
+        return list2 != null ? list2.size() : 0;
     }
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object o) {
-
-        return  (view==o);
-
+        return (view == o);
     }
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-
-        container.removeView((LinearLayout)object);
+        container.removeView((LinearLayout) object);
     }
 
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, final int position) {
         final ShimmerTextView cccu;
-        MaterialIconView relodmm,share2,copt2;
-        Shimmer s=new Shimmer();
+        MaterialIconView relodmm, share2, copt2;
+        Shimmer s = new Shimmer();
 
-
-        inflater=(LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-        View view=inflater.inflate(R.layout.design_pager2,container,false);
-        LinearLayout linearLayout=(LinearLayout)view.findViewById(R.id.linearrr2);
-        CardView car=(CardView)view.findViewById(R.id.car2);
-        cccu =(ShimmerTextView)view.findViewById(R.id.cccu);
-        share2=(MaterialIconView)view.findViewById(R.id.share2);
-        copt2=(MaterialIconView)view.findViewById(R.id.copt2);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.design_pager2, container, false);
+        CardView car = view.findViewById(R.id.car2);
+        cccu = view.findViewById(R.id.cccu);
+        share2 = view.findViewById(R.id.share2);
+        copt2 = view.findViewById(R.id.copt2);
         s.start(cccu);
 
-
-        car.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                n++;
-                cccu.setText(String.valueOf(n));
-
-
-            }
+        car.setOnClickListener(v -> {
+            n++;
+            cccu.setText(String.valueOf(n));
         });
 
-        relodmm=(MaterialIconView)view.findViewById(R.id.relodmm);
-        relodmm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                n=0;
-                cccu.setText(String.valueOf(n));
-            }
+        relodmm = view.findViewById(R.id.relodmm);
+        relodmm.setOnClickListener(v -> {
+            n = 0;
+            cccu.setText(String.valueOf(n));
         });
 
-        TextView textpagera=(TextView)view.findViewById(R.id.textpagerm1);
-        TextView textpagerb=(TextView)view.findViewById(R.id.textpagerm2);
-        TextView textpagerc=(TextView)view.findViewById(R.id.textpagerm3);
-        TextView textpagess=(TextView)view.findViewById(R.id.textpage2);
-        typeface= Typeface.createFromAsset(view.getContext().getAssets(),"6.otf");
-        textpagera.setTypeface(typeface);
-        textpagerb.setTypeface(typeface);
-        textpagerc.setTypeface(typeface);
+        TextView textpagera = view.findViewById(R.id.textpagerm1);
+        TextView textpagerb = view.findViewById(R.id.textpagerm2);
+        TextView textpagerc = view.findViewById(R.id.textpagerm3);
+        TextView textpagess = view.findViewById(R.id.textpage2);
+
+        if (cachedTypeface != null) {
+            textpagera.setTypeface(cachedTypeface);
+            textpagerb.setTypeface(cachedTypeface);
+            textpagerc.setTypeface(cachedTypeface);
+        }
+
         textpagera.setText(list2.get(position).getTextpagerm1());
         textpagerb.setText(list2.get(position).getTextpagerm2());
         textpagerc.setText(list2.get(position).getTextpagerm3());
         textpagess.setText(list2.get(position).getTextpage2());
         container.addView(view);
 
-        copt2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                android.content.ClipboardManager clipboard = (android.content.ClipboardManager)context. getSystemService(Context.CLIPBOARD_SERVICE);
-                android.content.ClipData clip = android.content.ClipData.newPlainText("",list2.get(position).getTextpagerm1()+"\n"+list2.get(position).getTextpagerm2()+"\n"+list2.get(position).getTextpagerm3()+"\n"+""+ "اذكار المساء من تطبيق ثواب \n" +"\n"+
-                        "\n"+   " https://t.co/4VQlA6AZrH\n");
+        copt2.setOnClickListener(v -> {
+            android.content.ClipboardManager clipboard = (android.content.ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+            android.content.ClipData clip = android.content.ClipData.newPlainText("", list2.get(position).getTextpagerm1() + "\n" + list2.get(position).getTextpagerm2() + "\n" + list2.get(position).getTextpagerm3() + "\n" + "اذكار المساء من تطبيق ثواب \n\n" + " https://play.google.com/store/apps/details?id=com.App.Thwaap\n");
+            if (clipboard != null) {
                 clipboard.setPrimaryClip(clip);
-                Toast.makeText(context, "تم نسخ النصوص ", Toast.LENGTH_SHORT).show();
-
             }
+            Toast.makeText(context, "تم نسخ النصوص ", Toast.LENGTH_SHORT).show();
         });
-        share2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent sendIntent = new Intent();
-                sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_SUBJECT," تطبيق ثواب (Thawap) ");
-                sendIntent.putExtra(Intent.EXTRA_TEXT,list2.get(position).getTextpagerm1()+"\n"+list2.get(position).getTextpagerm2()+"\n"+list2.get(position).getTextpagerm3()+"\n"+ "مشاركه نصوص من تطبيق ثواب  \n" +"\n"+ "\n"+" https://t.co/4VQlA6AZrH\n");
-                sendIntent.setType("text/plain");
-                context.startActivity(Intent.createChooser(sendIntent,"مشاركه تطبيق ثواب  مع الاصدقاء:"));
-                Toast.makeText(context, "جزاك الله خيرا لمشاركه التطبيق", Toast.LENGTH_SHORT).show();
 
-            }
+        share2.setOnClickListener(v -> {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_SUBJECT, " تطبيق ثواب (Thawap) ");
+            sendIntent.putExtra(Intent.EXTRA_TEXT, list2.get(position).getTextpagerm1() + "\n" + list2.get(position).getTextpagerm2() + "\n" + list2.get(position).getTextpagerm3() + "\n" + "مشاركه نصوص من تطبيق ثواب  \n\n" + " https://play.google.com/store/apps/details?id=com.App.Thwaap\n");
+            sendIntent.setType("text/plain");
+            context.startActivity(Intent.createChooser(sendIntent, "مشاركه تطبيق ثواب  مع الاصدقاء:"));
+            Toast.makeText(context, "جزاك الله خيرا لمشاركه التطبيق", Toast.LENGTH_SHORT).show();
         });
+
         return view;
     }
 }
-
