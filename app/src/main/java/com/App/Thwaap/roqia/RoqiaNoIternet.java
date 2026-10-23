@@ -5,12 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.App.Thwaap.R;
 import com.App.Thwaap.base.BaseActivity;
+import com.App.Thwaap.databinding.ActivityRoqiaNoIternetBinding;
 
 public class RoqiaNoIternet extends BaseActivity {
 
-    private final String TAG = "TAG";
+    private ActivityRoqiaNoIternetBinding binding;
 
     public static Intent newIntent(Context context) {
         return new Intent(context, RoqiaNoIternet.class);
@@ -19,9 +19,9 @@ public class RoqiaNoIternet extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_roqia_no_iternet);
+        binding = ActivityRoqiaNoIternetBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
     }
-
 
     public void onBackClicked(View view) {
         onBackPressed();

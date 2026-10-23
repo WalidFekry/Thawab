@@ -3,45 +3,49 @@ package com.App.Thwaap;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
-import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.App.Thwaap.databinding.ItemRecBinding;
 
 import java.util.List;
 
-public class Adapters extends RecyclerView.Adapter<Adapters.holder> {
+public class Adapters extends RecyclerView.Adapter<Adapters.Holder> {
     private final Context context;
-    private final List<rec_item> listtt;
+    private final List<rec_item> itemList;
     private static Typeface cachedTypeface;
 
-    public Adapters(Context context, List<rec_item> listtt) {
+    public Adapters(Context context, List<rec_item> itemList) {
         this.context = context;
-        this.listtt = listtt;
+        this.itemList = itemList;
         if (cachedTypeface == null && context != null) {
-            cachedTypeface = Typeface.createFromAsset(context.getAssets(), "2.otf");
+            try {
+                cachedTypeface = Typeface.createFromAsset(context.getAssets(), "2.otf");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
     @NonNull
     @Override
-    public holder onCreateViewHolder(@NonNull ViewGroup parent, int holder) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_rec, parent, false);
-        return new holder(view);
+    public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        ItemRecBinding binding = ItemRecBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        return new Holder(binding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final holder holder, int position) {
-        holder.texttt.setText(listtt.get(position).getTexttt());
+    public void onBindViewHolder(@NonNull final Holder holder, int position) {
+        rec_item item = itemList.get(position);
+        holder.binding.texttt.setText(item.getTexttt());
         if (cachedTypeface != null) {
-            holder.texttt.setTypeface(cachedTypeface);
+            holder.binding.texttt.setTypeface(cachedTypeface);
         }
-        final rec_item item = listtt.get(position);
 
-        holder.cards.setOnClickListener(v -> {
+        holder.binding.cards.setOnClickListener(v -> {
             Intent intent = new Intent(context, Maintitle1.class);
             intent.putExtra("title", item.getTexttt());
             context.startActivity(intent);
@@ -50,17 +54,15 @@ public class Adapters extends RecyclerView.Adapter<Adapters.holder> {
 
     @Override
     public int getItemCount() {
-        return listtt.size();
+        return itemList != null ? itemList.size() : 0;
     }
 
-    public static class holder extends RecyclerView.ViewHolder {
-        private final TextView texttt;
-        private final CardView cards;
+    public static class Holder extends RecyclerView.ViewHolder {
+        final ItemRecBinding binding;
 
-        public holder(@NonNull View itemView) {
-            super(itemView);
-            texttt = itemView.findViewById(R.id.texttt);
-            cards = itemView.findViewById(R.id.cards);
+        public Holder(@NonNull ItemRecBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
         }
     }
 }

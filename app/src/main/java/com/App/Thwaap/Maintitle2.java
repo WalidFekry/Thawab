@@ -2,205 +2,172 @@ package com.App.Thwaap;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-import com.r0adkll.slidr.Slidr;
-import com.r0adkll.slidr.model.SlidrInterface;
-import com.romainpiel.shimmer.Shimmer;
-import com.romainpiel.shimmer.ShimmerTextView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
-import net.steamcrafted.materialiconlib.MaterialIconView;
+import com.App.Thwaap.databinding.ActivityMaintitle2Binding;
+import com.App.Thwaap.utils.AdManager;
+import com.App.Thwaap.utils.CommonUtils;
+import com.r0adkll.slidr.Slidr;
+import com.romainpiel.shimmer.Shimmer;
 
 public class Maintitle2 extends AppCompatActivity {
-ShimmerTextView texthhh,textnumber;
-MaterialIconView plus,minus,reloddd;
-Shimmer ss;
-TextView textcnter,textcnter1,textcnter2,textcnter3,textcnter4,textcnter5,textcnter6;
-ImageView img_icon;
-ImageView click;
-private SlidrInterface slidr;
-int a=0;
-int c=18;
-    private AdView mAdView;
+
+    private ActivityMaintitle2Binding binding;
+    private int clickCount = 0;
+    private int textSize = 18;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature( Window.FEATURE_NO_TITLE );
-        getWindow().setFlags( WindowManager.LayoutParams.FLAG_FULLSCREEN,
-         WindowManager.LayoutParams.FLAG_FULLSCREEN );
-        setContentView(R.layout.activity_maintitle2);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        CommonUtils.setupFullscreen(this);
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
-        mAdView = findViewById(R.id.title2);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+        binding = ActivityMaintitle2Binding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-      slidr=Slidr.attach(this);
-        texthhh=(ShimmerTextView)findViewById(R.id.texthhh);
-        textnumber=(ShimmerTextView)findViewById(R.id.textnumber);
-        textcnter=(TextView)findViewById(R.id.textcnter);
-        textcnter1=(TextView)findViewById(R.id.textcnter1);
-        textcnter2=(TextView)findViewById(R.id.textcnter2);
-        textcnter3=(TextView)findViewById(R.id.textcnter3);
-        textcnter4=(TextView)findViewById(R.id.textcnter4);
-        textcnter5=(TextView)findViewById(R.id.textcnter5);
-        textcnter6=(TextView)findViewById(R.id.textcnter6);
-Typeface typeface=Typeface.createFromAsset(getAssets(),"6.otf");
-        textcnter.setTypeface(typeface);
-        textcnter1.setTypeface(typeface);
-        textcnter2.setTypeface(typeface);
-        textcnter3.setTypeface(typeface);
-        textcnter4.setTypeface(typeface);
-        textcnter5.setTypeface(typeface);
-        textcnter6.setTypeface(typeface);
-        click=(ImageView)findViewById(R.id.click);
-        plus=(MaterialIconView)findViewById(R.id.plus);
-        minus=(MaterialIconView)findViewById(R.id.minus);
-        reloddd=(MaterialIconView)findViewById(R.id.reloddd);
-        img_icon=(ImageView)findViewById(R.id.img_icon);
-Intent intent=getIntent();
-String title=intent.getStringExtra("title");
-        ss=new Shimmer();
-        ss.start(textnumber);
-        ss.start(texthhh);
-        reloddd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                        a=0;
-               textnumber.setText(String.valueOf(a));
-            }
-        });
-        click.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                a++;
-                textnumber.setText(String.valueOf(a));
+        AdManager.getInstance().loadBanner(binding.title2);
 
-            }
-        });
-        plus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-             if (c<50){
-                 c++;}
-            else Toast.makeText(Maintitle2.this, "لايمكن تكبير الخط اكبر من ذلك", Toast.LENGTH_SHORT).show();
-                textcnter.setTextSize(c);
-                textcnter1.setTextSize(c);
-                textcnter2.setTextSize(c);
-                textcnter3.setTextSize(c);
-                textcnter4.setTextSize(c);
-                textcnter5.setTextSize(c);
-                textcnter6.setTextSize(c);
+        Slidr.attach(this);
 
-            }
-        });
-        minus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (c>13){
-                    c--;}
-                else Toast.makeText(Maintitle2.this, "لايمكن تصغير الخط اصغر من ذلك", Toast.LENGTH_SHORT).show();
-                textcnter.setTextSize(c);
-                textcnter1.setTextSize(c);
-                textcnter2.setTextSize(c);
-                textcnter3.setTextSize(c);
-                textcnter4.setTextSize(c);
-                textcnter5.setTextSize(c);
-                textcnter6.setTextSize(c);
+        try {
+            Typeface typeface = Typeface.createFromAsset(getAssets(), "6.otf");
+            binding.textcnter.setTypeface(typeface);
+            binding.textcnter1.setTypeface(typeface);
+            binding.textcnter2.setTypeface(typeface);
+            binding.textcnter3.setTypeface(typeface);
+            binding.textcnter4.setTypeface(typeface);
+            binding.textcnter5.setTypeface(typeface);
+            binding.textcnter6.setTypeface(typeface);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-            }
+        Shimmer ss = new Shimmer();
+        ss.start(binding.textnumber);
+        ss.start(binding.texthhh);
+
+        binding.reloddd.setOnClickListener(v -> {
+            clickCount = 0;
+            binding.textnumber.setText(String.valueOf(clickCount));
         });
 
+        binding.click.setOnClickListener(v -> {
+            clickCount++;
+            binding.textnumber.setText(String.valueOf(clickCount));
+        });
 
-        switch (title){
+        binding.plus.setOnClickListener(v -> {
+            if (textSize < 50) {
+                textSize++;
+            } else {
+                Toast.makeText(this, "لايمكن تكبير الخط اكبر من ذلك", Toast.LENGTH_SHORT).show();
+            }
+            updateTextSize();
+        });
+
+        binding.minus.setOnClickListener(v -> {
+            if (textSize > 13) {
+                textSize--;
+            } else {
+                Toast.makeText(this, "لايمكن تصغير الخط اصغر من ذلك", Toast.LENGTH_SHORT).show();
+            }
+            updateTextSize();
+        });
+
+        Intent intent = getIntent();
+        String title = intent != null ? intent.getStringExtra("title") : "";
+        if (title == null) title = "";
+
+        setupContent(title);
+    }
+
+    private void updateTextSize() {
+        binding.textcnter.setTextSize(textSize);
+        binding.textcnter1.setTextSize(textSize);
+        binding.textcnter2.setTextSize(textSize);
+        binding.textcnter3.setTextSize(textSize);
+        binding.textcnter4.setTextSize(textSize);
+        binding.textcnter5.setTextSize(textSize);
+        binding.textcnter6.setTextSize(textSize);
+    }
+
+    private void setupContent(String title) {
+        int blueColor = ContextCompat.getColor(this, R.color.blue_inactive);
+
+        switch (title) {
             case "اذكار الصباح":
-                texthhh.setText(title);
-                textcnter.setText(R.string.azkars1);
-                img_icon.setImageResource(R.drawable.icon_a);
+                binding.texthhh.setText(title);
+                binding.textcnter.setText(R.string.azkars1);
+                binding.imgIcon.setImageResource(R.drawable.icon_a);
                 break;
             case "اذكار السفر":
-                texthhh.setText(title);
-                textcnter.setText(R.string.sfarazkar);
-                img_icon.setImageResource(R.drawable.icon_d);
+                binding.texthhh.setText(title);
+                binding.textcnter.setText(R.string.sfarazkar);
+                binding.imgIcon.setImageResource(R.drawable.icon_d);
                 break;
             case "اذكار المسجد":
-                texthhh.setText(title);
-                textcnter.setText(R.string.masgedazkar);
-                textcnter1.setText(R.string.masgesazkar1);
-                textcnter2.setText(R.string.masgedazkar2);
-                textcnter3.setText(R.string.msgedazkar3);
-                textcnter4.setText(R.string.msgedazkar4);
-                textcnter5.setText(R.string.msgedazkar5);
-                textcnter.setTextSize(20);
-                textcnter2.setTextSize(20);
-                textcnter4.setTextSize(20);
-                textcnter.setTextColor(this.getResources().getColor(R.color.blue_inactive));
-                textcnter2.setTextColor(this.getResources().getColor(R.color.blue_inactive));
-                textcnter4.setTextColor(this.getResources().getColor(R.color.blue_inactive));
-                img_icon.setImageResource(R.drawable.icon_e);
+                binding.texthhh.setText(title);
+                binding.textcnter.setText(R.string.masgedazkar);
+                binding.textcnter1.setText(R.string.masgesazkar1);
+                binding.textcnter2.setText(R.string.masgedazkar2);
+                binding.textcnter3.setText(R.string.msgedazkar3);
+                binding.textcnter4.setText(R.string.msgedazkar4);
+                binding.textcnter5.setText(R.string.msgedazkar5);
+                binding.textcnter.setTextSize(20);
+                binding.textcnter2.setTextSize(20);
+                binding.textcnter4.setTextSize(20);
+                binding.textcnter.setTextColor(blueColor);
+                binding.textcnter2.setTextColor(blueColor);
+                binding.textcnter4.setTextColor(blueColor);
+                binding.imgIcon.setImageResource(R.drawable.icon_e);
                 break;
             case "اذكار النوم":
-                texthhh.setText(title);
-                textcnter.setText(R.string.noom);
-                textcnter1.setText(R.string.noom1);
-                textcnter2.setText(R.string.noom2);
-                textcnter3.setText(R.string.noom3);
-                textcnter4.setText(R.string.noom4);
-                textcnter5.setText(R.string.noom5);
-                textcnter.setTextSize(20);
-                textcnter2.setTextSize(20);
-                textcnter4.setTextSize(20);
-                textcnter.setTextColor(this.getResources().getColor(R.color.blue_inactive));
-                textcnter2.setTextColor(this.getResources().getColor(R.color.blue_inactive));
-                textcnter4.setTextColor(this.getResources().getColor(R.color.blue_inactive));
-                img_icon.setImageResource(R.drawable.icon_f);
+                binding.texthhh.setText(title);
+                binding.textcnter.setText(R.string.noom);
+                binding.textcnter1.setText(R.string.noom1);
+                binding.textcnter2.setText(R.string.noom2);
+                binding.textcnter3.setText(R.string.noom3);
+                binding.textcnter4.setText(R.string.noom4);
+                binding.textcnter5.setText(R.string.noom5);
+                binding.textcnter.setTextSize(20);
+                binding.textcnter2.setTextSize(20);
+                binding.textcnter4.setTextSize(20);
+                binding.textcnter.setTextColor(blueColor);
+                binding.textcnter2.setTextColor(blueColor);
+                binding.textcnter4.setTextColor(blueColor);
+                binding.imgIcon.setImageResource(R.drawable.icon_f);
                 break;
             case "اذكارالمنزل":
-                texthhh.setText(title);
-                textcnter.setText(R.string.home);
-                textcnter1.setText(R.string.home1);
-                textcnter2.setText(R.string.home2);
-                textcnter3.setText(R.string.home3);
-                 textcnter.setTextSize(20);
-                textcnter2.setTextSize(20);
-                textcnter.setTextColor(this.getResources().getColor(R.color.blue_inactive));
-                textcnter2.setTextColor(this.getResources().getColor(R.color.blue_inactive));
-
-                img_icon.setImageResource(R.drawable.icon_g);
+                binding.texthhh.setText(title);
+                binding.textcnter.setText(R.string.home);
+                binding.textcnter1.setText(R.string.home1);
+                binding.textcnter2.setText(R.string.home2);
+                binding.textcnter3.setText(R.string.home3);
+                binding.textcnter.setTextSize(20);
+                binding.textcnter2.setTextSize(20);
+                binding.textcnter.setTextColor(blueColor);
+                binding.textcnter2.setTextColor(blueColor);
+                binding.imgIcon.setImageResource(R.drawable.icon_g);
                 break;
             case "الاسماء الحسني":
-                 textcnter.setText(R.string.hosna);
-                 textcnter1.setText(R.string.hosna1);
-                 textcnter2.setText(R.string.hosna2);
-                 textcnter3.setText(R.string.hosna3);
-                 textcnter4.setText(R.string.hosna4);
-                 textcnter1.setTextSize(20);
-                 textcnter3.setTextSize(20);
-                 textcnter1.setTextColor(this.getResources().getColor(R.color.blue_inactive));
-                 textcnter3.setTextColor(this.getResources().getColor(R.color.blue_inactive));
-                 img_icon.setImageResource(R.drawable.icon_i);
-                  break;
-
-
-
-
+                binding.textcnter.setText(R.string.hosna);
+                binding.textcnter1.setText(R.string.hosna1);
+                binding.textcnter2.setText(R.string.hosna2);
+                binding.textcnter3.setText(R.string.hosna3);
+                binding.textcnter4.setText(R.string.hosna4);
+                binding.textcnter1.setTextSize(20);
+                binding.textcnter3.setTextSize(20);
+                binding.textcnter1.setTextColor(blueColor);
+                binding.textcnter3.setTextColor(blueColor);
+                binding.imgIcon.setImageResource(R.drawable.icon_i);
+                break;
+            default:
+                break;
         }
     }
 }

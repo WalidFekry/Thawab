@@ -1,22 +1,18 @@
 package com.App.Thwaap;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Typeface;
-import androidx.annotation.NonNull;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.cardview.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.romainpiel.shimmer.Shimmer;
-import com.romainpiel.shimmer.ShimmerTextView;
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.PagerAdapter;
 
-import net.steamcrafted.materialiconlib.MaterialIconView;
+import com.App.Thwaap.databinding.DesignPager1Binding;
+import com.App.Thwaap.utils.CommonUtils;
+import com.romainpiel.shimmer.Shimmer;
 
 import java.util.List;
 
@@ -25,13 +21,17 @@ public class Adapterpager1 extends PagerAdapter {
     private final Context context;
     private final List<item> lista;
     private static Typeface cachedTypeface;
-    public int n = 0;
+    public int counter = 0;
 
     public Adapterpager1(Context context, List<item> lista) {
         this.context = context;
         this.lista = lista;
         if (cachedTypeface == null && context != null) {
-            cachedTypeface = Typeface.createFromAsset(context.getAssets(), "6.otf");
+            try {
+                cachedTypeface = Typeface.createFromAsset(context.getAssets(), "6.otf");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -47,73 +47,54 @@ public class Adapterpager1 extends PagerAdapter {
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        container.removeView((LinearLayout) object);
+        container.removeView((View) object);
     }
 
     @NonNull
     @Override
     public Object instantiateItem(@NonNull final ViewGroup container, final int position) {
-        final ShimmerTextView ccu;
-        MaterialIconView relod, contentccc, sharetext;
+        DesignPager1Binding binding = DesignPager1Binding.inflate(LayoutInflater.from(context), container, false);
+
         Shimmer s = new Shimmer();
+        s.start(binding.ccu);
 
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        final View view = inflater.inflate(R.layout.design_pager1, container, false);
-
-        CardView car = view.findViewById(R.id.car);
-        ccu = view.findViewById(R.id.ccu);
-        s.start(ccu);
-
-        car.setOnClickListener(v -> {
-            n++;
-            ccu.setText(String.valueOf(n));
+        binding.car.setOnClickListener(v -> {
+            counter++;
+            binding.ccu.setText(String.valueOf(counter));
         });
 
-        relod = view.findViewById(R.id.relod);
-        relod.setOnClickListener(v -> {
-            n = 0;
-            ccu.setText(String.valueOf(n));
+        binding.relod.setOnClickListener(v -> {
+            counter = 0;
+            binding.ccu.setText(String.valueOf(counter));
         });
-
-        contentccc = view.findViewById(R.id.contentccc);
-        sharetext = view.findViewById(R.id.sharetext);
-
-        TextView textpagera = view.findViewById(R.id.te);
-        TextView textpagerb = view.findViewById(R.id.tee);
-        TextView textpagerc = view.findViewById(R.id.teee);
-        TextView textpagess = view.findViewById(R.id.teeee);
 
         if (cachedTypeface != null) {
-            textpagera.setTypeface(cachedTypeface);
-            textpagerb.setTypeface(cachedTypeface);
-            textpagerc.setTypeface(cachedTypeface);
+            binding.te.setTypeface(cachedTypeface);
+            binding.tee.setTypeface(cachedTypeface);
+            binding.teee.setTypeface(cachedTypeface);
         }
 
-        textpagera.setText(lista.get(position).getTe());
-        textpagerb.setText((lista.get(position).getTee()));
-        textpagerc.setText((lista.get(position).getTeee()));
-        textpagess.setText((lista.get(position).getTeeee()));
-        container.addView(view);
+        item currentItem = lista.get(position);
+        binding.te.setText(currentItem.getTe());
+        binding.tee.setText(currentItem.getTee());
+        binding.teee.setText(currentItem.getTeee());
+        binding.teeee.setText(currentItem.getTeeee());
 
-        contentccc.setOnClickListener(v -> {
-            android.content.ClipboardManager clipboard = (android.content.ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-            android.content.ClipData clip = android.content.ClipData.newPlainText("", lista.get(position).getTe() + "\n" + lista.get(position).getTee() + "\n" + lista.get(position).getTeee() + "\n" + "نصوص من تطبيق ثواب \n\n" + " https://play.google.com/store/apps/details?id=com.App.Thwaap\n");
-            if (clipboard != null) {
-                clipboard.setPrimaryClip(clip);
-            }
-            Toast.makeText(context, "تم نسخ النصوص ", Toast.LENGTH_SHORT).show();
+        container.addView(binding.getRoot());
+
+        binding.contentccc.setOnClickListener(v -> {
+            String textToCopy = currentItem.getTe() + "\n" + currentItem.getTee() + "\n" + currentItem.getTeee() +
+                    "\nنصوص من تطبيق ثواب \n\n https://play.google.com/store/apps/details?id=com.App.Thwaap\n";
+            CommonUtils.copyToClipboard(context, "", textToCopy, "تم نسخ النصوص ");
         });
 
-        sharetext.setOnClickListener(v -> {
-            Intent sendIntent = new Intent();
-            sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_SUBJECT, " تطبيق ثواب (Thawap) ");
-            sendIntent.putExtra(Intent.EXTRA_TEXT, lista.get(position).getTe() + "\n" + lista.get(position).getTee() + "\n" + lista.get(position).getTeee() + "\n" + "مشاركه نصوص من تطبيق ثواب  \n\n" + " https://play.google.com/store/apps/details?id=com.App.Thwaap\n");
-            sendIntent.setType("text/plain");
-            context.startActivity(Intent.createChooser(sendIntent, "مشاركه تطبيق ثواب  مع الاصدقاء:"));
+        binding.sharetext.setOnClickListener(v -> {
+            String textToShare = currentItem.getTe() + "\n" + currentItem.getTee() + "\n" + currentItem.getTeee() +
+                    "\nمشاركه نصوص من تطبيق ثواب  \n\n https://play.google.com/store/apps/details?id=com.App.Thwaap\n";
+            CommonUtils.shareText(context, " تطبيق ثواب (Thawap) ", textToShare, "مشاركه تطبيق ثواب  مع الاصدقاء:");
             Toast.makeText(context, "جزاك الله خيرا لمشاركه التطبيق", Toast.LENGTH_SHORT).show();
         });
 
-        return view;
+        return binding.getRoot();
     }
 }
