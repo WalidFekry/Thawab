@@ -2,7 +2,6 @@ package com.App.Thwaap;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.Window;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -26,11 +25,10 @@ public class Main2Activity extends BaseActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        CommonUtils.setupFullscreen(this);
 
         binding = ActivityMain2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        //CommonUtils.setupEdgeToEdge(this, binding.getRoot());
 
         setSupportActionBar(binding.appBarMain2.toolbar);
 
@@ -109,7 +107,7 @@ public class Main2Activity extends BaseActivity
         } else if (id == R.id.shareee) {
             CommonUtils.shareText(this,
                     " تطبيق ثواب (Thawap) ",
-                    "\nقمنا بتصميم البرنامج ليكون بسيط و مجاني ليضم أذكار الصباح و المساء مكتوبة و أذكار المسلم بدون إنترنت و ليساعدك على أن لا تستنى ذكر الله ابداً .\n \nتفضل رابط تطبيق ثواب  https://play.google.com/store/apps/details?id=com.App.Thwaap \n",
+                    "\nقمنا بتصميم البرنامج ليكون بسيط و مجاني ليضم أذكار الصباح و المساء مكتوبة و أذكار المسلم بدون إنترنت و ليساعدك على أن لا تنسى ذكر الله ابداً .\n \nتفضل رابط تطبيق ثواب  https://play.google.com/store/apps/details?id=com.App.Thwaap \n",
                     "مشاركه تطبيق ثواب  مع الاصدقاء:");
         } else if (id == R.id.mass) {
             CommonUtils.sendEmail(this, "walid_fekry@hotmail.com", "اكتب آقتراحك", "");

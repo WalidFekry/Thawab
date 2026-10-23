@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.App.Thwaap.base.BaseActivity;
 import com.App.Thwaap.databinding.ActivityRoqiaNoIternetBinding;
+import com.App.Thwaap.utils.CommonUtils;
 
 public class RoqiaNoIternet extends BaseActivity {
 
@@ -21,6 +22,7 @@ public class RoqiaNoIternet extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityRoqiaNoIternetBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        CommonUtils.setupEdgeToEdge(this, binding.getRoot());
     }
 
     public void onBackClicked(View view) {

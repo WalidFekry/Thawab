@@ -1,35 +1,43 @@
 package com.App.Thwaap.utils;
 
-import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
-import android.view.Window;
-import android.view.WindowManager;
+import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
-import androidx.core.view.WindowCompat;
+import androidx.activity.ComponentActivity;
+import androidx.activity.EdgeToEdge;
+import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.core.view.WindowInsetsControllerCompat;
 
 public class CommonUtils {
 
-    public static void setupFullscreen(Activity activity) {
-        if (activity == null) return;
-        Window window = activity.getWindow();
-        if (window == null) return;
+    private static final String TAG = "CommonUtils";
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            WindowInsetsControllerCompat controller = WindowCompat.getInsetsController(window, window.getDecorView());
-            controller.hide(WindowInsetsCompat.Type.statusBars());
-            controller.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
-        } else {
-            @SuppressWarnings("deprecation")
-            int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;
-            window.setFlags(flag, flag);
+    public static void setupEdgeToEdge(ComponentActivity activity, View rootView) {
+        if (activity == null) return;
+        try {
+            EdgeToEdge.enable(activity);
+        } catch (Exception e) {
+            Log.e(TAG, "Error enabling EdgeToEdge: " + e.getMessage());
+        }
+
+        if (rootView != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(rootView, (v, insets) -> {
+                int statusBarHeight = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top;
+                int navBarHeight = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom;
+                v.setPadding(
+                        v.getPaddingLeft(),
+                        statusBarHeight,
+                        v.getPaddingRight(),
+                        navBarHeight
+                );
+                return WindowInsetsCompat.CONSUMED;
+            });
         }
     }
 

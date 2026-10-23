@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
-import android.view.Window;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,11 +19,10 @@ public class Splash extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        CommonUtils.setupFullscreen(this);
 
         ActivitySplashBinding binding = ActivitySplashBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        CommonUtils.setupEdgeToEdge(this, binding.getRoot());
 
         try {
             Typeface typeface = Typeface.createFromAsset(getAssets(), "ggg.ttf");

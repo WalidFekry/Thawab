@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.App.Thwaap.base.BaseActivity;
 import com.App.Thwaap.databinding.ActivityMasbahaBinding;
+import com.App.Thwaap.utils.CommonUtils;
 import com.App.Thwaap.utils.PreferencesManager;
 
 public class MasbahaActivity extends BaseActivity {
@@ -23,6 +24,7 @@ public class MasbahaActivity extends BaseActivity {
 
         binding = ActivityMasbahaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        CommonUtils.setupEdgeToEdge(this, binding.getRoot());
 
         preferencesManager = new PreferencesManager(this);
 

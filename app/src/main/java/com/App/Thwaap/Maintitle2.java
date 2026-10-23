@@ -3,7 +3,6 @@ package com.App.Thwaap;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.view.Window;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,11 +23,10 @@ public class Maintitle2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        CommonUtils.setupFullscreen(this);
 
         binding = ActivityMaintitle2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        CommonUtils.setupEdgeToEdge(this, binding.getRoot());
 
         AdManager.getInstance().loadBanner(binding.title2);
 

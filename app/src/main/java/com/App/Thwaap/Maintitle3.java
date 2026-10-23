@@ -1,7 +1,6 @@
 package com.App.Thwaap;
 
 import android.os.Bundle;
-import android.view.Window;
 
 import com.App.Thwaap.base.BaseActivity;
 import com.App.Thwaap.databinding.ActivityMaintitle3Binding;
@@ -18,11 +17,10 @@ public class Maintitle3 extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        CommonUtils.setupFullscreen(this);
 
         binding = ActivityMaintitle3Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        CommonUtils.setupEdgeToEdge(this, binding.getRoot());
 
         AdManager.getInstance().loadBanner(binding.pagerspah);
 
@@ -50,8 +48,5 @@ public class Maintitle3 extends BaseActivity {
 
         Adapterpager1 adapterpager1 = new Adapterpager1(this, lista);
         binding.pager1.setAdapter(adapterpager1);
-
-        AdManager.getInstance().loadInterstitial(this, getString(R.string.Biny2));
-        getHandler().postDelayed(() -> AdManager.getInstance().showInterstitial(this), 4000);
     }
 }

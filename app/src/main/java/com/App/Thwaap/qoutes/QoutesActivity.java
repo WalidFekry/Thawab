@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.Toast;
@@ -44,11 +43,10 @@ public class QoutesActivity extends BaseActivity implements Adaptersada.OnMessen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        CommonUtils.setupFullscreen(this);
 
         binding = ActivityQoutesBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        CommonUtils.setupEdgeToEdge(this, binding.getRoot());
 
         if (binding.backButton != null) {
             binding.backButton.setOnClickListener(v -> finish());
