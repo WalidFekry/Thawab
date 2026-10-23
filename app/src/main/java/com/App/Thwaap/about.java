@@ -2,12 +2,15 @@ package com.App.Thwaap;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.App.Thwaap.databinding.ActivityAboutBinding;
 import com.App.Thwaap.utils.CommonUtils;
+import com.App.Thwaap.utils.PreferencesManager;
 import com.romainpiel.shimmer.Shimmer;
 
 public class about extends AppCompatActivity {
@@ -51,6 +54,18 @@ public class about extends AppCompatActivity {
     }
 
     private void setupClickListeners() {
+        PreferencesManager prefs = new PreferencesManager(this);
+        binding.darkmodeSwitch.setChecked(prefs.isNightMode());
+
+        View.OnClickListener toggleNightMode = v -> {
+            boolean newMode = !prefs.isNightMode();
+            prefs.setNightMode(newMode);
+            binding.darkmodeSwitch.setChecked(newMode);
+            AppCompatDelegate.setDefaultNightMode(newMode ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
+        };
+
+        binding.darkmodeCard.setOnClickListener(toggleNightMode);
+
         binding.facebookc.setOnClickListener(v -> CommonUtils.openUrl(this, "https://www.facebook.com/Waleed.Fikri"));
         binding.twiterc.setOnClickListener(v -> CommonUtils.openUrl(this, "https://twitter.com/ProWalidFekry"));
         binding.gmmailc.setOnClickListener(v -> CommonUtils.sendEmail(this, "prowalidkfekry@gmail.com", "رسالة إلى مطور تطبيق ثواب 📲", "اكتب رسالتك هنا"));

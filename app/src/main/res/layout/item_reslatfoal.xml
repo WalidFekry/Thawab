@@ -4,22 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    android:background="@drawable/newaround_line"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="6dp">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/carrd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="1dp"
-        app:cardBackgroundColor="#FFF"
-        app:cardElevation="4dp"
-        app:cardMaxElevation="2dp">
+        app:cardBackgroundColor="@color/card_surface"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="2dp"
+        app:strokeColor="@color/card_stroke"
+        app:strokeWidth="1dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="16dp">
 
             <LinearLayout
                 android:id="@+id/num"
@@ -27,46 +29,29 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:gravity="center"
+                android:gravity="start"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="10dp"
                     android:fontFamily="@font/ffo"
-                    android:text="@string/message_num" />
+                    android:text="@string/message_num"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" />
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/car2"
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/message_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:minWidth="50dp"
-                    app:cardBackgroundColor="#FFF"
-                    app:cardCornerRadius="15dp"
-                    app:cardElevation="1dp"
-                    app:cardUseCompatPadding="false">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/message_number"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:fontFamily="@font/ffo"
-                        tools:text="555" />
-
-                </androidx.cardview.widget.CardView>
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/ffo"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:text="555" />
 
             </LinearLayout>
-
 
             <LinearLayout
                 android:id="@+id/time"
@@ -74,178 +59,132 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:gravity="center"
+                android:gravity="end"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="10dp"
                     android:fontFamily="@font/ffo"
-                    android:text="@string/message_time" />
+                    android:text="@string/message_time"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" />
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/car55"
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/message_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    app:cardBackgroundColor="#FFF"
-                    app:cardCornerRadius="15dp"
-                    app:cardElevation="1dp"
-                    app:cardUseCompatPadding="false">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/message_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:fontFamily="@font/ffo"
-                        tools:text="2021" />
-
-                </androidx.cardview.widget.CardView>
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/ffo"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"
+                    tools:text="2021-01-05" />
 
             </LinearLayout>
-
 
             <LinearLayout
                 android:id="@+id/baccc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/num"
-                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/animation_view"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
                     android:layout_gravity="center"
                     app:lottie_autoPlay="true"
                     app:lottie_fileName="data.json"
-                    app:lottie_loop="false"
-                    tools:ignore="MissingConstraints" />
+                    app:lottie_loop="false" />
 
                 <LinearLayout
                     android:id="@+id/body_picture"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="-10dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="1dp"
+                        android:layout_marginVertical="8dp"
                         android:fontFamily="@font/ffon1"
                         android:gravity="center"
-                        android:textColor="#29292B"
-                        android:textSize="18sp"
+                        android:lineSpacingExtra="6dp"
+                        android:textColor="@color/text_primary"
+                        android:textSize="17sp"
                         android:textStyle="bold"
-                        tools:text="rrr" />
+                        tools:text="رسالة الأمل واليقين" />
 
-                    <LinearLayout
+                    <ImageView
+                        android:id="@+id/imagggg"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        tools:ignore="ContentDescription" />
 
-                        <ImageView
-                            android:id="@+id/imagggg"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:scaleType="centerCrop"
-                            tools:ignore="ContentDescription" />
-                    </LinearLayout>
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="0.1dp"
-                    android:background="#443939" />
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="@color/card_stroke" />
 
-                <androidx.cardview.widget.CardView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="5dp"
-                    app:cardElevation="2dp">
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:orientation="horizontal">
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/starquran"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_marginHorizontal="12dp"
+                        app:lottie_autoPlay="true"
+                        app:lottie_fileName="382-favorite-icon-star.json"
+                        app:lottie_loop="false" />
 
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/sharequran"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_marginHorizontal="12dp"
+                        app:lottie_autoPlay="true"
+                        app:lottie_fileName="2048-share-icon-waiting.json"
+                        app:lottie_loop="false" />
 
+                    <net.steamcrafted.materialiconlib.MaterialIconView
+                        android:id="@+id/copyquran"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginHorizontal="12dp"
+                        android:scaleType="center"
+                        app:materialIcon="content_copy"
+                        app:materialIconColor="@color/colorPrimary"
+                        app:materialIconSize="28dp" />
 
-                        <com.airbnb.lottie.LottieAnimationView
-                            android:id="@+id/starquran"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_gravity="center"
-                            android:layout_margin="4dp"
-                            app:lottie_autoPlay="true"
-                            app:lottie_fileName="382-favorite-icon-star.json"
-                            app:lottie_loop="false"
-                            tools:ignore="MissingConstraints" />
+                    <net.steamcrafted.materialiconlib.MaterialIconView
+                        android:id="@+id/qumsgwhats"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginHorizontal="12dp"
+                        android:scaleType="center"
+                        app:materialIcon="whatsapp"
+                        app:materialIconColor="#25D366"
+                        app:materialIconSize="32dp" />
 
-                        <com.airbnb.lottie.LottieAnimationView
-                            android:id="@+id/sharequran"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_gravity="center"
-                            android:layout_margin="4dp"
-                            app:lottie_autoPlay="true"
-                            app:lottie_fileName="2048-share-icon-waiting.json"
-                            app:lottie_loop="false"
-                            tools:ignore="MissingConstraints" />
-
-
-                        <net.steamcrafted.materialiconlib.MaterialIconView
-                            android:id="@+id/copyquran"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:layout_margin="5dp"
-                            android:scaleType="center"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.019"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.0"
-                            app:materialIcon="content_copy"
-                            app:materialIconColor="#EE9892"
-                            app:materialIconSize="35dp"
-                            tools:ignore="MissingConstraints" />
-
-
-
-                        <net.steamcrafted.materialiconlib.MaterialIconView
-                            android:id="@+id/qumsgwhats"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:scaleType="center"
-                            app:materialIcon="whatsapp"
-                            app:materialIconColor="#55CD6C"
-                            app:materialIconSize="40dp" />
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
             </LinearLayout>
 
-
         </RelativeLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
+
 </LinearLayout>

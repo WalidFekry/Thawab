@@ -41,6 +41,10 @@
             android:id="@+id/about"
             android:icon="@drawable/icon_e"
             android:title="عن التطبيق" />
+        <item
+            android:id="@+id/darkmode"
+            android:icon="@drawable/ic_boot"
+            android:title="الوضع الداكن / الليلي" />
 
     </group>
 

@@ -4,589 +4,476 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_background"
     android:orientation="vertical"
-    android:background="@drawable/thawa_sp"
     tools:context=".about">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
-            <LinearLayout
+            android:orientation="vertical">
+
+            <!-- App Header Card -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="200dp">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/card_surface"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="3dp"
+                app:strokeColor="@color/card_stroke"
+                app:strokeWidth="1dp">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="24dp">
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardiew"
-                        app:cardCornerRadius="10dp"
-                        android:layout_margin="15dp"
-                        app:cardUseCompatPadding="true"
+                    <com.romainpiel.shimmer.ShimmerTextView
+                        android:id="@+id/textthaeap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="ثواب - Thawap"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="32sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtapp"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:foreground="?attr/selectableItemBackground"
-                        tools:layout_editor_absoluteX="8dp"
-                        tools:layout_editor_absoluteY="8dp">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+                        android:lineSpacingExtra="4dp"
+                        android:text="قمنا بتصميم البرنامج ليكون بسيط و مجاني ليضم أذكار الصباح و المساء مكتوبة و أذكار المسلم بدون إنترنت و ليساعدك على أن لا تنسى ذكر الله ابداً ."
+                        android:textColor="@color/text_secondary"
+                        android:textSize="15sp" />
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                </LinearLayout>
 
-                            <com.romainpiel.shimmer.ShimmerTextView
-                                android:id="@+id/textthaeap"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_margin="15sp"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginEnd="8dp"
-                                android:layout_marginBottom="8dp"
-                                android:gravity="center"
-                                android:shadowColor="#000"
-                                android:shadowDx="2"
-                                android:shadowDy="2"
-                                android:shadowRadius="2"
-                                android:text="ثواب - Thawap "
-                                android:textColor="#1976D2"
-                                android:textSize="40sp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="1.0"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.09" />
+            </com.google.android.material.card.MaterialCardView>
 
-                            <TextView
-                                android:id="@+id/txtapp"
-                                android:layout_width="300dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginEnd="8dp"
-                                android:shadowColor="#000"
-                                android:shadowDx="2"
-                                android:shadowDy="2"
-                                android:shadowRadius="2"
-                                android:textColor="#0097A7"
-                                android:textStyle="italic"
-                                android:gravity="center"
-                                android:text="قمنا بتصميم البرنامج ليكون بسيط و مجاني ليضم أذكار الصباح و المساء مكتوبة و أذكار المسلم بدون إنترنت و ليساعدك على أن لا تنسى ذكر الله ابداً ."
-                                android:textSize="16sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.495"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.838" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </androidx.cardview.widget.CardView>
-                </androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- Night Mode Toggle Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/darkmode_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/card_surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/card_stroke"
+                app:strokeWidth="1dp">
 
-            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
 
+                    <net.steamcrafted.materialiconlib.MaterialIconView
+                        android:id="@+id/darkmode_icon"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:scaleType="center"
+                        app:materialIcon="weather_night"
+                        app:materialIconColor="@color/colorPrimary"
+                        app:materialIconSize="28dp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/darkmode_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="الوضع الداكن / الليلي"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/darkmode_subtitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="مظهر مريح للعين في الأجواء المظلمة"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/darkmode_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:focusable="false" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Grid 1: Facebook & Twitter -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
-                <androidx.cardview.widget.CardView
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
                     android:id="@+id/facebookc"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="10dp"
+                    android:layout_margin="6dp"
+                    android:layout_weight="1"
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.113">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="wrap_content">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+                    app:cardBackgroundColor="@color/card_surface"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="@color/card_stroke"
+                    app:strokeWidth="1dp">
 
-        <net.steamcrafted.materialiconlib.MaterialIconView
-            android:id="@+id/facebook"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_margin="4dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:scaleType="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:materialIcon="facebook_box"
-            app:materialIconColor="@color/blue_active"
-            app:materialIconSize="90dp"
-            tools:ignore="MissingConstraints" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <TextView
-        android:id="@+id/t1"
-        android:textStyle="italic"
-        android:textSize="15dp"
-        android:textColor="#161B3D"
-        android:shadowColor="#000"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="2"
-        android:layout_width="match_parent"
-        android:text="تابعنا على الفيسبوك"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_height="wrap_content" />
-</LinearLayout>
-
-
-
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/twiterc"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="10dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:shape="ring"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.113">
                     <LinearLayout
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:orientation="vertical"
-                        android:layout_height="match_parent">
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                        android:padding="16dp">
 
-                            <net.steamcrafted.materialiconlib.MaterialIconView
-                                android:id="@+id/twiter"
-                                android:layout_width="90dp"
-                                android:layout_height="90dp"
-                                android:layout_margin="4dp"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginEnd="8dp"
-                                android:layout_marginBottom="8dp"
-                                android:scaleType="center"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:materialIcon="twitter"
-                                app:materialIconColor="@color/blue_active"
-                                app:materialIconSize="90dp" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <net.steamcrafted.materialiconlib.MaterialIconView
+                            android:id="@+id/facebook"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:scaleType="center"
+                            app:materialIcon="facebook_box"
+                            app:materialIconColor="#1877F2"
+                            app:materialIconSize="48dp" />
+
+                        <TextView
+                            android:id="@+id/t1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="فيسبوك"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/twiterc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/card_surface"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="@color/card_stroke"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <net.steamcrafted.materialiconlib.MaterialIconView
+                            android:id="@+id/twiter"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:scaleType="center"
+                            app:materialIcon="twitter"
+                            app:materialIconColor="#1DA1F2"
+                            app:materialIconSize="48dp" />
+
                         <TextView
                             android:id="@+id/t2"
-                            android:layout_width="match_parent"
-                            android:text="تابعنا على تويتر"
-                            android:textStyle="italic"
-                            android:textSize="15dp"
-                            android:textColor="#161B3D"
-                            android:shadowColor="#000"
-                            android:shadowDx="2"
-                            android:shadowDy="2"
-                            android:shadowRadius="2"
-                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
                             android:gravity="center"
-                            android:layout_height="wrap_content" />
+                            android:text="تويتر"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
+
+                </com.google.android.material.card.MaterialCardView>
+
             </LinearLayout>
 
+            <!-- Grid 2: Email & Share -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
-                <androidx.cardview.widget.CardView
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
                     android:id="@+id/gmmailc"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="10dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_margin="6dp"
+                    android:layout_weight="1"
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    android:shape="ring"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.113">
+                    app:cardBackgroundColor="@color/card_surface"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="@color/card_stroke"
+                    app:strokeWidth="1dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:orientation="vertical"
-                        android:layout_height="wrap_content">
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                        android:padding="16dp">
 
-                            <net.steamcrafted.materialiconlib.MaterialIconView
-                                android:id="@+id/gmmail"
-                                android:layout_width="90dp"
-                                android:layout_height="90dp"
-                                android:layout_margin="4dp"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginEnd="8dp"
-                                android:layout_marginBottom="8dp"
-                                android:scaleType="center"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:materialIcon="gmail"
-                                app:materialIconColor="@color/purple_active"
-                                app:materialIconSize="90dp" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <net.steamcrafted.materialiconlib.MaterialIconView
+                            android:id="@+id/gmmail"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:scaleType="center"
+                            app:materialIcon="gmail"
+                            app:materialIconColor="#EA4335"
+                            app:materialIconSize="48dp" />
+
                         <TextView
                             android:id="@+id/t3"
-                            android:layout_width="match_parent"
-                            android:text="ارسال اقتراح/ اتصل بنا"
-                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
                             android:gravity="center"
-                            android:textStyle="italic"
-                            android:textSize="15dp"
-                            android:textColor="#161B3D"
-                            android:shadowColor="#000"
-                            android:shadowDx="2"
-                            android:shadowDy="2"
-                            android:shadowRadius="2"
-                            android:layout_height="wrap_content" />
+                            android:text="اتصل بنا"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
                     android:id="@+id/shearc"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="10dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:shape="ring"
+                    android:layout_margin="6dp"
+                    android:layout_weight="1"
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.113">
-                   <LinearLayout
-                       android:layout_width="match_parent"
-                       android:orientation="vertical"
-                       android:layout_height="wrap_content">
-                       <androidx.constraintlayout.widget.ConstraintLayout
-                           android:layout_width="match_parent"
-                           android:layout_height="match_parent">
+                    app:cardBackgroundColor="@color/card_surface"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="@color/card_stroke"
+                    app:strokeWidth="1dp">
 
-                           <net.steamcrafted.materialiconlib.MaterialIconView
-                               android:id="@+id/shear"
-                               android:layout_width="90dp"
-                               android:layout_height="90dp"
-                               android:layout_margin="4dp"
-                               android:layout_marginTop="8dp"
-                               android:layout_marginEnd="8dp"
-                               android:layout_marginBottom="8dp"
-                               android:scaleType="center"
-                               app:layout_constraintBottom_toBottomOf="parent"
-                               app:layout_constraintEnd_toEndOf="parent"
-                               app:layout_constraintHorizontal_bias="0.548"
-                               app:layout_constraintStart_toStartOf="parent"
-                               app:layout_constraintTop_toTopOf="parent"
-                               app:materialIcon="share_variant"
-                               app:materialIconColor="#C2185B"
-                               app:materialIconSize="90dp" />
-                       </androidx.constraintlayout.widget.ConstraintLayout>
-                       <TextView
-                           android:id="@+id/t4"
-                           android:layout_width="match_parent"
-                           android:text="مشاركة التطبيق"
-                           android:layout_gravity="center"
-                           android:gravity="center"
-                           android:textStyle="italic"
-                           android:textSize="15dp"
-                           android:textColor="#161B3D"
-                           android:shadowColor="#000"
-                           android:shadowDx="2"
-                           android:shadowDy="2"
-                           android:shadowRadius="2"
-                           android:layout_height="wrap_content" />
-                   </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <net.steamcrafted.materialiconlib.MaterialIconView
+                            android:id="@+id/shear"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:scaleType="center"
+                            app:materialIcon="share_variant"
+                            app:materialIconColor="@color/colorAccent"
+                            app:materialIconSize="48dp" />
+
+                        <TextView
+                            android:id="@+id/t4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="مشاركة التطبيق"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
             </LinearLayout>
 
+            <!-- Grid 3: Google Play & Rate -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
-                <androidx.cardview.widget.CardView
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
                     android:id="@+id/googleplayc"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="10dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:shape="ring"
+                    android:layout_margin="6dp"
+                    android:layout_weight="1"
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.113">
+                    app:cardBackgroundColor="@color/card_surface"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="@color/card_stroke"
+                    app:strokeWidth="1dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:orientation="vertical"
-                        android:layout_height="wrap_content">
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                        android:padding="16dp">
 
-                            <net.steamcrafted.materialiconlib.MaterialIconView
-                                android:id="@+id/googleplay"
-                                android:layout_width="90dp"
-                                android:layout_height="90dp"
-                                android:layout_margin="4dp"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginEnd="8dp"
-                                android:layout_marginBottom="8dp"
-                                android:scaleType="center"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.543"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.545"
-                                app:materialIcon="google_play"
-                                app:materialIconColor="@color/purple_active"
-                                app:materialIconSize="90dp" />
+                        <net.steamcrafted.materialiconlib.MaterialIconView
+                            android:id="@+id/googleplay"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:scaleType="center"
+                            app:materialIcon="google_play"
+                            app:materialIconColor="#4182EC"
+                            app:materialIconSize="48dp" />
 
-                        </androidx.constraintlayout.widget.ConstraintLayout>
                         <TextView
                             android:id="@+id/t7"
-                            android:layout_width="match_parent"
-                            android:text="المزيد من التطبيقات المجانية"
-                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
                             android:gravity="center"
-                            android:textStyle="italic"
-                            android:textSize="15dp"
-                            android:textColor="#161B3D"
-                            android:shadowColor="#000"
-                            android:shadowDx="2"
-                            android:shadowDy="2"
-                            android:shadowRadius="2"
-                            android:layout_height="wrap_content" />
+                            android:text="تطبيقاتنا"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
                     android:id="@+id/rratec"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="10dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:shape="ring"
+                    android:layout_margin="6dp"
+                    android:layout_weight="1"
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.113">
+                    app:cardBackgroundColor="@color/card_surface"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="@color/card_stroke"
+                    app:strokeWidth="1dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:orientation="vertical"
-                        android:layout_height="wrap_content">
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                        android:padding="16dp">
 
-                            <net.steamcrafted.materialiconlib.MaterialIconView
-                                android:id="@+id/rrate"
-                                android:layout_width="90dp"
-                                android:layout_height="90dp"
-                                android:layout_margin="4dp"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginEnd="8dp"
-                                android:layout_marginBottom="8dp"
-                                android:scaleType="center"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.548"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:materialIcon="heart"
-                                app:materialIconColor="@color/yellow_active"
-                                app:materialIconSize="90dp" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <net.steamcrafted.materialiconlib.MaterialIconView
+                            android:id="@+id/rrate"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:scaleType="center"
+                            app:materialIcon="star"
+                            app:materialIconColor="#FFB800"
+                            app:materialIconSize="48dp" />
+
                         <TextView
                             android:id="@+id/t6"
-                            android:layout_width="match_parent"
-                            android:text="تقييم التطبيق"
-                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
                             android:gravity="center"
-                            android:textStyle="italic"
-                            android:textSize="15dp"
-                            android:textColor="#161B3D"
-                            android:shadowColor="#000"
-                            android:shadowDx="2"
-                            android:shadowDy="2"
-                            android:shadowRadius="2"
-                            android:layout_height="wrap_content" />
+                            android:text="تقييم التطبيق"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
+                </com.google.android.material.card.MaterialCardView>
+
             </LinearLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:orientation="horizontal"
-    android:layout_height="wrap_content">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/pric"
-        android:layout_weight="1"
-        app:cardBackgroundColor="@color/blue_grey_inactive"
-        android:layout_width="match_parent"
-        android:layout_height="119dp"
-        app:cardCornerRadius="10dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:shape="ring"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?attr/selectableItemBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.113">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:layout_height="match_parent"
-    tools:ignore="MissingConstraints">
+            <!-- Privacy Policy Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/pric"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/card_surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/card_stroke"
+                app:strokeWidth="1dp">
 
-    <TextView
-        android:id="@+id/t8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:shadowColor="#000"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="2"
-        android:textColor="#FFFFFF"
-        android:textStyle="italic"
-        android:gravity="center"
-        android:text=" سياسة الخصوصية"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.413" />
-    <TextView
-        android:id="@+id/t9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:shadowColor="#000"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="2"
-        android:textColor="#FFFFFF"
-        android:textStyle="italic"
-        android:gravity="center"
-        android:text=" Privacy-Policy |"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.413" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-</LinearLayout>
+                    <TextView
+                        android:id="@+id/t8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="سياسة الخصوصية"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-</LinearLayout>
+                    <TextView
+                        android:id="@+id/t9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="Privacy Policy"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
         </LinearLayout>
+
     </ScrollView>
+
 </LinearLayout>
-
-
-

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark Mode Theme Colors -->
+    <color name="colorPrimary">#1A3A3D</color>
+    <color name="colorPrimaryDark">#122729</color>
+    <color name="colorAccent">#E5A93C</color>
+
+    <!-- Background & Surface Colors -->
+    <color name="app_background">#12181F</color>
+    <color name="card_surface">#1C242E</color>
+    <color name="card_stroke">#2A3644</color>
+    <color name="header_gradient_start">#16232D</color>
+    <color name="header_gradient_end">#1F313E</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#F1F5F9</color>
+    <color name="text_secondary">#94A3B8</color>
+    <color name="text_gold">#E5A93C</color>
+
+    <!-- Legacy Compatibility Colors in Dark Mode -->
+    <color name="blue_inactive">#26A69A</color>
+    <color name="s">#12181F</color>
+    <color name="ww">#1C242E</color>
+</resources>

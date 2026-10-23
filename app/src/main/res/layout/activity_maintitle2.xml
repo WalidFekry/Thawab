@@ -3,283 +3,220 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/background_newkids"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="@color/app_background"
+    android:orientation="vertical"
     tools:context=".Maintitle2">
 
-    <androidx.cardview.widget.CardView
+    <!-- Top Toolbar Bar for Text Size & Title -->
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        app:cardElevation="5dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/card_surface"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="3dp"
+        app:strokeColor="@color/card_stroke"
+        app:strokeWidth="1dp">
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:layout_height="match_parent"
-            android:background="@drawable/greheader">
+            android:paddingHorizontal="16dp">
 
             <net.steamcrafted.materialiconlib.MaterialIconView
                 android:id="@+id/plus"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:scaleType="center"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.991"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
                 app:materialIcon="plus"
-                app:materialIconColor="#FFFFFF"
-                app:materialIconSize="40dp" />
+                app:materialIconColor="@color/colorPrimary"
+                app:materialIconSize="28dp" />
 
             <net.steamcrafted.materialiconlib.MaterialIconView
                 android:id="@+id/minus"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:scaleType="center"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/plus"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
                 app:materialIcon="minus"
-                app:materialIconColor="#FFFFFF"
-                app:materialIconSize="40dp" />
+                app:materialIconColor="@color/colorPrimary"
+                app:materialIconSize="28dp" />
 
             <net.steamcrafted.materialiconlib.MaterialIconView
                 android:id="@+id/reloddd"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:scaleType="center"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/plus"
-                app:layout_constraintHorizontal_bias="0.832"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0"
                 app:materialIcon="reload"
-                app:materialIconColor="#FFFFFF"
-                app:materialIconSize="40dp" />
+                app:materialIconColor="@color/text_secondary"
+                app:materialIconSize="28dp" />
 
             <com.romainpiel.shimmer.ShimmerTextView
-                android:layout_width="match_parent"
                 android:id="@+id/texthhh"
-                android:textColor="#E2DFDF"
-                android:textSize="20sp"
-                android:layout_gravity="center"
-                android:gravity="bottom"
-                android:textStyle="bold"
-                android:layout_margin="5dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-
-                app:layout_constraintEnd_toStartOf="@+id/reloddd"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end|center_vertical"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+
+    </com.google.android.material.card.MaterialCardView>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_weight="3"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:padding="16dp">
 
         <LinearLayout
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
-            <LinearLayout
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <!-- Category Icon Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/card_surface"
+                app:cardCornerRadius="36dp"
+                app:cardElevation="3dp"
+                app:strokeColor="@color/card_stroke"
+                app:strokeWidth="1dp">
+
+                <ImageView
+                    android:id="@+id/img_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_a" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Main Text Card -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/card_surface"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="3dp"
+                app:strokeColor="@color/card_stroke"
+                app:strokeWidth="1dp">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:cardBackgroundColor="#F0F0F0"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="10dp"
-                    app:cardUseCompatPadding="true">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_margin="1dp"
-                        app:cardBackgroundColor="#FFF7F7"
-                        app:cardElevation="9dp"
-                        app:cardUseCompatPadding="true">
-
-                        <ImageView
-                            android:id="@+id/img_icon"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/icon_a" />
-                    </androidx.cardview.widget.CardView>
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                app:cardElevation="8dp"
-               app:cardBackgroundColor="@color/blue_grey_inactive"
-                app:cardCornerRadius="10dp"
-                app:cardUseCompatPadding="true"
-                android:layout_height="wrap_content">
                 <LinearLayout
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_height="wrap_content">
+                    android:padding="20dp">
+
                     <TextView
-                        android:lineSpacingExtra="5dp"
                         android:id="@+id/textcnter"
-                        android:layout_margin="10dp"
-                        android:shadowColor="#000"
-                        android:shadowDx="2"
-                        android:shadowDy="2"
-                        android:shadowRadius="2"
                         android:layout_width="match_parent"
-                        android:textSize="18sp"
+                        android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="italic"
-                        android:layout_height="wrap_content" />
+                        android:lineSpacingExtra="8dp"
+                        android:textColor="@color/text_primary"
+                        android:textSize="18sp" />
+
                     <TextView
-                        android:lineSpacingExtra="5dp"
                         android:id="@+id/textcnter1"
-                        android:layout_margin="10dp"
                         android:layout_width="match_parent"
-                        android:textSize="18sp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:shadowColor="#000"
-                        android:shadowDx="2"
-                        android:shadowDy="2"
-                        android:shadowRadius="2"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="italic"
-                        android:layout_height="wrap_content" />
+                        android:lineSpacingExtra="8dp"
+                        android:textColor="@color/text_primary"
+                        android:textSize="18sp" />
+
                     <TextView
-                        android:lineSpacingExtra="5dp"
                         android:id="@+id/textcnter2"
-                        android:layout_margin="10dp"
                         android:layout_width="match_parent"
-                        android:textSize="18sp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:shadowColor="#000"
-                        android:shadowDx="2"
-                        android:shadowDy="2"
-                        android:shadowRadius="2"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="italic"
-                        android:layout_height="wrap_content" />
+                        android:lineSpacingExtra="8dp"
+                        android:textColor="@color/text_primary"
+                        android:textSize="18sp" />
+
                     <TextView
-                        android:lineSpacingExtra="5dp"
                         android:id="@+id/textcnter3"
-                        android:layout_margin="10dp"
                         android:layout_width="match_parent"
-                        android:textSize="18sp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="italic"
-                        android:shadowColor="#000"
-                        android:shadowDx="2"
-                        android:shadowDy="2"
-                        android:shadowRadius="2"
-                        android:layout_height="wrap_content" />
+                        android:lineSpacingExtra="8dp"
+                        android:textColor="@color/text_primary"
+                        android:textSize="18sp" />
+
                     <TextView
-                        android:lineSpacingExtra="5dp"
                         android:id="@+id/textcnter4"
-                        android:layout_margin="10dp"
                         android:layout_width="match_parent"
-                        android:textSize="18sp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="italic"
-                        android:shadowColor="#000"
-                        android:shadowDx="2"
-                        android:shadowDy="2"
-                        android:shadowRadius="2"
-                        android:layout_height="wrap_content" />
+                        android:lineSpacingExtra="8dp"
+                        android:textColor="@color/text_primary"
+                        android:textSize="18sp" />
+
                     <TextView
-                        android:lineSpacingExtra="5dp"
                         android:id="@+id/textcnter5"
-                        android:layout_margin="10dp"
                         android:layout_width="match_parent"
-                        android:textSize="18sp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:textColor="#FFFFFF"
-                        android:shadowColor="#000"
-                        android:shadowDx="2"
-                        android:shadowDy="2"
-                        android:shadowRadius="2"
-                        android:textStyle="italic"
-                        android:layout_height="wrap_content" />
+                        android:lineSpacingExtra="8dp"
+                        android:textColor="@color/text_primary"
+                        android:textSize="18sp" />
+
                     <TextView
-                        android:lineSpacingExtra="5dp"
                         android:id="@+id/textcnter6"
-                        android:layout_margin="10dp"
                         android:layout_width="match_parent"
-                        android:textSize="18sp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:textColor="#FFFFFF"
-                        android:shadowColor="#000"
-                        android:shadowDx="2"
-                        android:shadowDy="2"
-                        android:shadowRadius="2"
-                        android:textStyle="italic"
-                        android:layout_height="wrap_content" />
+                        android:lineSpacingExtra="8dp"
+                        android:textColor="@color/text_primary"
+                        android:textSize="18sp" />
+
                     <com.romainpiel.shimmer.ShimmerTextView
                         android:id="@+id/textnumber"
-                        android:layout_width="match_parent"
-                        android:layout_margin="15sp"
-                        android:textSize="40sp"
-                        android:textStyle="bold"
-                        android:text="0"
-                        android:textColor="#F5F4F4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginTop="16dp"
                         android:gravity="center"
-                        android:layout_height="wrap_content" />
-
+                        android:text="0"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="36sp"
+                        android:textStyle="bold" />
 
                     <ImageView
                         android:id="@+id/click"
-                        android:layout_width="wrap_content"
-                        android:layout_height="80dp"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
                         android:layout_gravity="center"
-                        android:layout_marginStart="8dp"
-                        android:layout_margin="15sp"
-                        android:src="@drawable/click"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.486"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
+                        android:layout_marginTop="12dp"
+                        android:src="@drawable/click" />
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
-
-
+            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
 
     </ScrollView>
+
     <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/title2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        ads:adSize="SMART_BANNER"
-        ads:adUnitId="@string/Banner2"
-        ads:layout_constraintBottom_toBottomOf="parent"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints">
-
-    </com.google.android.gms.ads.AdView>
+        app:adSize="SMART_BANNER"
+        app:adUnitId="@string/Banner2" />
 
 </LinearLayout>

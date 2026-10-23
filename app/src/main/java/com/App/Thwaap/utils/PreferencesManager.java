@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class PreferencesManager {
-    private static final String PREF_NAME = "masbaha";
+    private static final String PREF_NAME = "thawab_prefs";
     private final SharedPreferences preferences;
 
     public PreferencesManager(Context context) {
@@ -21,5 +21,13 @@ public class PreferencesManager {
 
     public void clearMasbahaIndex(int selection) {
         preferences.edit().putInt("index" + selection, 0).apply();
+    }
+
+    public void setNightMode(boolean enabled) {
+        preferences.edit().putBoolean("night_mode", enabled).apply();
+    }
+
+    public boolean isNightMode() {
+        return preferences.getBoolean("night_mode", false);
     }
 }

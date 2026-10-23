@@ -26,6 +26,7 @@ import com.App.Thwaap.masbaha.MasbahaActivity;
 import com.App.Thwaap.qoutes.QoutesActivity;
 import com.App.Thwaap.roqia.RoqiaNoIternet;
 import com.App.Thwaap.utils.CommonUtils;
+import com.App.Thwaap.utils.PreferencesManager;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.romainpiel.shimmer.Shimmer;
@@ -194,6 +195,11 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(this, about.class));
         } else if (id == R.id.mass) {
             CommonUtils.sendEmail(this, "prowalidfekry@gmail.com", "رسالة إلى مبرمج تطبيق ثواب 📲", "");
+        } else if (id == R.id.darkmode) {
+            PreferencesManager prefs = new PreferencesManager(this);
+            boolean newMode = !prefs.isNightMode();
+            prefs.setNightMode(newMode);
+            AppCompatDelegate.setDefaultNightMode(newMode ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
         }
 
         binding.drawerLayout.closeDrawer(GravityCompat.START);
