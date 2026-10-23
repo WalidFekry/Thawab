@@ -50,5 +50,8 @@ public class Maintitle3 extends BaseActivity {
 
         Adapterpager1 adapterpager1 = new Adapterpager1(this, lista);
         binding.pager1.setAdapter(adapterpager1);
+
+        AdManager.getInstance().loadInterstitial(this, getString(R.string.Biny2));
+        getHandler().postDelayed(() -> AdManager.getInstance().showInterstitial(this), 4000);
     }
 }

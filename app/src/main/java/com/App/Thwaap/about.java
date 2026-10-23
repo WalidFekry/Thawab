@@ -38,7 +38,6 @@ public class about extends AppCompatActivity {
             binding.t2.setTypeface(typeface);
             binding.t3.setTypeface(typeface);
             binding.t4.setTypeface(typeface);
-            binding.t5.setTypeface(typeface);
             binding.t6.setTypeface(typeface);
             binding.t7.setTypeface(typeface);
             binding.t8.setTypeface(typeface);
@@ -59,7 +58,6 @@ public class about extends AppCompatActivity {
                 " تطبيق ثواب (Thawap) ",
                 "\nقمنا بتصميم البرنامج ليكون بسيط و مجاني ليضم أذكار الصباح و المساء مكتوبة و أذكار المسلم بدون إنترنت و ليساعدك على أن لا تنسى ذكر الله ابداً .\n \nتفضل رابط تطبيق ثواب  https://play.google.com/store/apps/details?id=com.App.Thwaap \n",
                 "مشاركه تطبيق ثواب  مع الاصدقاء:"));
-        binding.massngerc.setOnClickListener(v -> CommonUtils.openUrl(this, "https://m.me/App.Qurani"));
         binding.rratec.setOnClickListener(v -> CommonUtils.openPlayStore(this));
         binding.googleplayc.setOnClickListener(v -> CommonUtils.openUrl(this, "https://t.co/US34fsUZeW"));
         binding.pric.setOnClickListener(v -> CommonUtils.openUrl(this, "https://sites.google.com/view/appthawap/home?fbclid=IwAR1Zlt7zvBwb1j1iTKSj75nG4xnj7e3SdS0djhhzHFJDvnnFaW0YTGPdjgE"));
