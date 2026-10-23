@@ -18,7 +18,7 @@
             android:title="جروبنا علي الفيس بوك" />
         <item
             android:id="@+id/tele"
-            android:icon="@drawable/test_ico"
+            android:icon="@drawable/ic_group"
             android:title="جروبنا علي التليجرام" />
         <item
             android:id="@+id/ratee"
