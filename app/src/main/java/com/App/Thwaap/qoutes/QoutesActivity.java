@@ -1,14 +1,13 @@
 package com.App.Thwaap.qoutes;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.App.Thwaap.R;
@@ -22,14 +21,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public class QoutesActivity extends BaseActivity implements Adaptersada.OnMessengerClick {
     private static final String TAG = "QoutesActivity";
@@ -37,8 +39,11 @@ public class QoutesActivity extends BaseActivity implements Adaptersada.OnMessen
 
     private ActivityQoutesBinding binding;
     private List<new_item_post> list2;
-    private final ExecutorService executorService = Executors.newSingleThreadExecutor();
-    private final Handler mainHandler = new Handler(Looper.getMainLooper());
+
+    private final OkHttpClient okHttpClient = new OkHttpClient.Builder()
+            .connectTimeout(10, TimeUnit.SECONDS)
+            .readTimeout(10, TimeUnit.SECONDS)
+            .build();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,46 +81,52 @@ public class QoutesActivity extends BaseActivity implements Adaptersada.OnMessen
     }
 
     private void fetchQuotesData() {
-        executorService.execute(() -> {
-            boolean success = false;
-            HttpURLConnection urlConnection = null;
-            try {
-                URL url = new URL(API_URL);
-                urlConnection = (HttpURLConnection) url.openConnection();
-                urlConnection.setConnectTimeout(10000);
-                urlConnection.setReadTimeout(10000);
-                int statusCode = urlConnection.getResponseCode();
-                if (statusCode == 200) {
-                    BufferedReader r = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-                    StringBuilder response = new StringBuilder();
-                    String line;
-                    while ((line = r.readLine()) != null) {
-                        response.append(line);
-                    }
-                    parseResult(response.toString());
-                    success = true;
-                }
-            } catch (Exception e) {
+        Request request = new Request.Builder()
+                .url(API_URL)
+                .build();
+
+        okHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
                 Log.e(TAG, "Error fetching data: " + e.getMessage());
-            } finally {
-                if (urlConnection != null) {
-                    urlConnection.disconnect();
-                }
+                runOnUiThread(() -> {
+                    if (isFinishing() || isDestroyed()) return;
+                    onDataFetched(false);
+                });
             }
 
-            final boolean isSuccess = success;
-            mainHandler.post(() -> {
-                if (isFinishing() || isDestroyed()) return;
-                onDataFetched(isSuccess);
-            });
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) {
+                boolean success = false;
+                List<new_item_post> fetchedList = null;
+                try (ResponseBody responseBody = response.body()) {
+                    if (response.isSuccessful() && responseBody != null) {
+                        String result = responseBody.string();
+                        fetchedList = parseResult(result);
+                        success = !fetchedList.isEmpty();
+                    }
+                } catch (Exception e) {
+                    Log.e(TAG, "Error processing response: " + e.getMessage());
+                }
+
+                final boolean isSuccess = success;
+                final List<new_item_post> finalPosts = fetchedList;
+                runOnUiThread(() -> {
+                    if (isFinishing() || isDestroyed()) return;
+                    if (isSuccess) {
+                        list2 = finalPosts;
+                    }
+                    onDataFetched(isSuccess);
+                });
+            }
         });
     }
 
-    private void parseResult(String result) {
+    private List<new_item_post> parseResult(String result) {
+        List<new_item_post> parsedList = new ArrayList<>();
         try {
             JSONObject response = new JSONObject(result);
             JSONArray post = response.optJSONArray("post");
-            list2 = new ArrayList<>();
             if (post != null) {
                 for (int i = 0; i < post.length(); i++) {
                     JSONObject posts = post.optJSONObject(i);
@@ -124,13 +135,14 @@ public class QoutesActivity extends BaseActivity implements Adaptersada.OnMessen
                         String imageurl = posts.optString("imageurl");
                         int id = posts.optInt("id");
                         String createdAt = posts.optString("created_at");
-                        list2.add(new new_item_post(title, imageurl, id, createdAt));
+                        parsedList.add(new new_item_post(title, imageurl, id, createdAt));
                     }
                 }
             }
         } catch (JSONException e) {
             Log.e(TAG, "JSON parsing error: " + e.getMessage());
         }
+        return parsedList;
     }
 
     private void onDataFetched(boolean success) {
@@ -195,7 +207,7 @@ public class QoutesActivity extends BaseActivity implements Adaptersada.OnMessen
 
     @Override
     protected void onDestroy() {
-        executorService.shutdown();
+        okHttpClient.dispatcher().cancelAll();
         super.onDestroy();
     }
 }
