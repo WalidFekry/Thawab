@@ -7,7 +7,7 @@ android {
         applicationId "com.App.Thwaap"
         minSdkVersion 24
         targetSdkVersion 37
-        versionCode 22
+        versionCode 23
         versionName "3.0"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         multiDexEnabled true
