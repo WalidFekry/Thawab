@@ -1,24 +1,19 @@
 package com.App.Thwaap;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.core.view.GravityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.App.Thwaap.base.BaseActivity;
 import com.App.Thwaap.databinding.ActivityMain2Binding;
 import com.App.Thwaap.utils.AdManager;
 import com.App.Thwaap.utils.CommonUtils;
-import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main2Activity extends BaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class Main2Activity extends BaseActivity {
 
     private ActivityMain2Binding binding;
 
@@ -28,23 +23,22 @@ public class Main2Activity extends BaseActivity
 
         binding = ActivityMain2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        //CommonUtils.setupEdgeToEdge(this, binding.getRoot());
+        CommonUtils.setupEdgeToEdge(this, binding.getRoot());
 
-        setSupportActionBar(binding.appBarMain2.toolbar);
+        if (binding.backButton != null) {
+            binding.backButton.setOnClickListener(v -> finish());
+        }
 
-        binding.appBarMain2.contentMain2.rec1.setLayoutManager(new LinearLayoutManager(this));
+        String title = getIntent().getStringExtra("title");
+        if (title != null && binding.toolbarTitle != null) {
+            binding.toolbarTitle.setText(title);
+        }
+
+        binding.rec1.setLayoutManager(new LinearLayoutManager(this));
 
         List<rec_item> listt = getRecItems();
         Adapters adapters = new Adapters(this, listt);
-        binding.appBarMain2.contentMain2.rec1.setAdapter(adapters);
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, binding.drawerLayout, binding.appBarMain2.toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        binding.drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-
-        binding.navView.setNavigationItemSelectedListener(this);
+        binding.rec1.setAdapter(adapters);
 
         AdManager.getInstance().loadInterstitial(this, getString(R.string.Biny2));
         getHandler().postDelayed(() -> AdManager.getInstance().showInterstitial(this), 4000);
@@ -83,37 +77,5 @@ public class Main2Activity extends BaseActivity
         listt.add(new rec_item("الرُّقية الشرعية من القرآن الكريم"));
         listt.add(new rec_item("الرُّقية الشرعية من السنة النبوية"));
         return listt;
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            binding.drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.website) {
-            CommonUtils.openUrl(this, "https://application-muslim.blogspot.com/?m=1&fbclid=IwAR2JSI7LF7kK9hVfmyu50eoYLq_-dXmJlkWovnMRoGTxgXm_S7FFewa1PdI");
-        } else if (id == R.id.facegroub) {
-            CommonUtils.openUrl(this, "https://www.facebook.com/groups/440403217380641");
-        } else if (id == R.id.ratee) {
-            CommonUtils.openPlayStore(this);
-        } else if (id == R.id.shareee) {
-            CommonUtils.shareText(this,
-                    " تطبيق ثواب (Thawap) ",
-                    "\nقمنا بتصميم البرنامج ليكون بسيط و مجاني ليضم أذكار الصباح و المساء مكتوبة و أذكار المسلم بدون إنترنت و ليساعدك على أن لا تنسى ذكر الله ابداً .\n \nتفضل رابط تطبيق ثواب  https://play.google.com/store/apps/details?id=com.App.Thwaap \n",
-                    "مشاركه تطبيق ثواب  مع الاصدقاء:");
-        } else if (id == R.id.mass) {
-            CommonUtils.sendEmail(this, "walid_fekry@hotmail.com", "اكتب آقتراحك", "");
-        }
-
-        binding.drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
     }
 }
