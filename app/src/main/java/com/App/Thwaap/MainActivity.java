@@ -118,10 +118,23 @@ public class MainActivity extends AppCompatActivity
         contentBinding.cardI.setOnClickListener(v -> navigateTo(Maintitle2.class, "الاسماء الحسني"));
 
         contentBinding.cardMasbaha.setOnClickListener(v -> navigateTo(MasbahaActivity.class, "المسبحة"));
-
         contentBinding.cardQoutes.setOnClickListener(v -> navigateTo(QoutesActivity.class, "اقتباسات عشوائية"));
-
         contentBinding.cardRoqia.setOnClickListener(v -> navigateTo(RoqiaNoIternet.class, "الرقية الشرعية"));
+
+        // New Category Card Click Listeners
+        contentBinding.cardFavorites.setOnClickListener(v -> navigateCategory(CategoryDetailActivity.TYPE_FAVORITES, "المفضلة"));
+        contentBinding.cardQuranDuas.setOnClickListener(v -> navigateCategory(CategoryDetailActivity.TYPE_QURAN, "أدعية من القرآن الكريم"));
+        contentBinding.cardPostPrayer.setOnClickListener(v -> navigateCategory(CategoryDetailActivity.TYPE_POST_PRAYER, "أذكار بعد الصلاة"));
+        contentBinding.cardFriday.setOnClickListener(v -> navigateCategory(CategoryDetailActivity.TYPE_FRIDAY, "أدعية وأذكار يوم الجمعة"));
+        contentBinding.cardIstighfar.setOnClickListener(v -> navigateCategory(CategoryDetailActivity.TYPE_ISTIGHFAR, "الاستغفار والتوبة"));
+        contentBinding.cardDistress.setOnClickListener(v -> navigateCategory(CategoryDetailActivity.TYPE_DISTRESS, "أذكار الكرب والهم والحزن"));
+    }
+
+    private void navigateCategory(String categoryType, String title) {
+        Intent intent = new Intent(this, CategoryDetailActivity.class);
+        intent.putExtra(CategoryDetailActivity.EXTRA_CATEGORY_TYPE, categoryType);
+        intent.putExtra(CategoryDetailActivity.EXTRA_TITLE, title);
+        startActivity(intent);
     }
 
     private void navigateTo(Class<?> targetActivity, String title) {
@@ -168,7 +181,9 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.website) {
+        if (id == R.id.nav_favorites) {
+            navigateCategory(CategoryDetailActivity.TYPE_FAVORITES, "المفضلة");
+        } else if (id == R.id.website) {
             CommonUtils.openUrl(this, "https://walid-fekry.com");
         } else if (id == R.id.facegroub) {
             CommonUtils.openUrl(this, "https://www.facebook.com/groups/440403217380641");

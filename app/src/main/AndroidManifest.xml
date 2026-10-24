@@ -31,6 +31,10 @@
         </activity>
 
         <activity
+            android:name=".CategoryDetailActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".masbaha.MasbahaActivity"
             android:exported="false" />
         <activity

@@ -47,6 +47,13 @@ public class Main2Activity extends BaseActivity {
     @NonNull
     private static List<rec_item> getRecItems() {
         List<rec_item> listt = new ArrayList<>();
+        listt.add(new rec_item("أدعية من القرآن الكريم"));
+        listt.add(new rec_item("أدعية من السنة النبوية"));
+        listt.add(new rec_item("أذكار بعد الصلاة"));
+        listt.add(new rec_item("أدعية وأذكار يوم الجمعة"));
+        listt.add(new rec_item("الاستغفار والتوبة"));
+        listt.add(new rec_item("الصلاة على النبي ﷺ"));
+        listt.add(new rec_item("أذكار الكرب والهم والحزن"));
         listt.add(new rec_item("أذكار الاستيقاظ من النوم"));
         listt.add(new rec_item("دعاء الوضوء"));
         listt.add(new rec_item("الدعاء عند سماع الآذان"));

@@ -15,13 +15,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Shimmer Header Quote Card -->
+        <!-- Shimmer Header Ayah Card -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="14dp"
             app:cardBackgroundColor="@color/card_surface"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="18dp"
             app:cardElevation="2dp"
             app:strokeColor="@color/card_stroke"
             app:strokeWidth="1dp">
@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:padding="16dp">
 
                 <com.romainpiel.shimmer.ShimmerTextView
                     android:id="@+id/tface"
@@ -47,22 +47,36 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Featured Banner Card: Quotes -->
+        <!-- Primary Featured Section: Focus on Messages of Hope & General Duas -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:fontFamily="@font/ffon1"
+            android:text="الأقسام الرئيسية"
+            android:textColor="@color/text_gold"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <!-- 1. Featured Card: Quotes & Messages of Hope (رسائل وأمل) -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardQoutes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="10dp"
             app:cardBackgroundColor="@color/card_surface"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="2dp"
-            app:strokeColor="@color/card_stroke"
-            app:strokeWidth="1dp">
+            app:cardCornerRadius="18dp"
+            app:cardElevation="3dp"
+            app:strokeColor="@color/colorAccent"
+            app:strokeWidth="1.5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:background="@drawable/bg_card_modern"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:padding="16dp">
 
@@ -72,38 +86,126 @@
                     android:layout_height="48dp"
                     android:src="@drawable/qoutes" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/qoutes"
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="14dp"
                     android:layout_weight="1"
-                    android:fontFamily="@font/ffon1"
-                    android:text="اقتباسات ورسائل أمل يومية"
-                    android:textColor="@color/text_primary"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/qoutes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/ffon1"
+                        android:text="رسائل وأمل وتفاؤل"
+                        android:textColor="@color/text_primary"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/jazeera"
+                        android:text="إقتباسات ورسائل إيجابية متجددة يومياً"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Grid Items Container -->
+        <!-- 2. Featured Card: General Duas (أدعية عامة) -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardH"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/card_surface"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="3dp"
+            app:strokeColor="@color/colorPrimary"
+            app:strokeWidth="1.5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card_modern"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/imgh"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/icon_h" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/texth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/ffon1"
+                        android:text="أدعية عامة وشاملة"
+                        android:textColor="@color/text_primary"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/jazeera"
+                        android:text="حصن المسلم وأدعية القرآن والسنة والرزق والشفاء"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Secondary Title: Azkar & Supplications Grid -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/ffon1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="الأذكار والتسابيح"
+            android:textColor="@color/text_gold"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <!-- Main Grid Container -->
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:alignmentMode="alignMargins"
             android:columnCount="3"
-            android:rowCount="4"
             android:useDefaultMargins="false">
 
-            <!-- 1: Morning Azkar -->
+            <!-- Morning Azkar -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardA"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_margin="6dp"
+                android:layout_margin="5dp"
                 app:cardBackgroundColor="@color/card_surface"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
@@ -119,8 +221,8 @@
 
                     <ImageView
                         android:id="@+id/imga"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:src="@drawable/icon_a" />
 
                     <TextView
@@ -136,52 +238,13 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- 2: Tasbeeh -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardC"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="6dp"
-                app:cardBackgroundColor="@color/card_surface"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
-                app:strokeColor="@color/card_stroke"
-                app:strokeWidth="1dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <ImageView
-                        android:id="@+id/imgc"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:src="@drawable/icon_c" />
-
-                    <TextView
-                        android:id="@+id/textc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:gravity="center"
-                        android:text="تسابيح"
-                        android:textColor="@color/text_primary"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- 3: Evening Azkar -->
+            <!-- Evening Azkar -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardB"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_margin="6dp"
+                android:layout_margin="5dp"
                 app:cardBackgroundColor="@color/card_surface"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
@@ -197,8 +260,8 @@
 
                     <ImageView
                         android:id="@+id/imgb"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:src="@drawable/icon_b" />
 
                     <TextView
@@ -214,13 +277,276 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- 4: Travel Azkar -->
+            <!-- Quranic Duas -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardQuranDuas"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/card_surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/card_stroke"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/img_m1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="أدعية القرآن"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Post Prayer Azkar -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPostPrayer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/card_surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/card_stroke"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/img_m9" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="بعد الصلاة"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Friday Duas -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardFriday"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/card_surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/card_stroke"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/img_m10" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="يوم الجمعة"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Istighfar -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardIstighfar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/card_surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/card_stroke"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/img_m7" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="الاستغفار"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Distress Duas -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardDistress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/card_surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/card_stroke"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/img_m2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="دعاء الكرب"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Tasbeeh -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardC"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/card_surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/card_stroke"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:id="@+id/imgc"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/icon_c" />
+
+                    <TextView
+                        android:id="@+id/textc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="تسابيح"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Masbaha -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardMasbaha"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/card_surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/card_stroke"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:id="@+id/masbaha"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/img_m3" />
+
+                    <TextView
+                        android:id="@+id/masbaha2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="المسبحة"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Travel Azkar -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardD"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_margin="6dp"
+                android:layout_margin="5dp"
                 app:cardBackgroundColor="@color/card_surface"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
@@ -236,8 +562,8 @@
 
                     <ImageView
                         android:id="@+id/imgd"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:src="@drawable/icon_d" />
 
                     <TextView
@@ -253,52 +579,13 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- 5: General Duas -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardH"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="6dp"
-                app:cardBackgroundColor="@color/card_surface"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
-                app:strokeColor="@color/card_stroke"
-                app:strokeWidth="1dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <ImageView
-                        android:id="@+id/imgh"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:src="@drawable/icon_h" />
-
-                    <TextView
-                        android:id="@+id/texth"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:gravity="center"
-                        android:text="أدعية عامة"
-                        android:textColor="@color/text_primary"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- 6: Sleep Azkar -->
+            <!-- Sleep Azkar -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardF"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_margin="6dp"
+                android:layout_margin="5dp"
                 app:cardBackgroundColor="@color/card_surface"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
@@ -314,8 +601,8 @@
 
                     <ImageView
                         android:id="@+id/imgf"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:src="@drawable/icon_f" />
 
                     <TextView
@@ -331,13 +618,13 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- 7: Home Azkar -->
+            <!-- Home Azkar -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardG"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_margin="6dp"
+                android:layout_margin="5dp"
                 app:cardBackgroundColor="@color/card_surface"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
@@ -353,8 +640,8 @@
 
                     <ImageView
                         android:id="@+id/imgg"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:src="@drawable/icon_g" />
 
                     <TextView
@@ -370,13 +657,13 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- 8: Asma Allah Al-Husna -->
+            <!-- Asma Allah Al-Husna -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardI"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_margin="6dp"
+                android:layout_margin="5dp"
                 app:cardBackgroundColor="@color/card_surface"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
@@ -392,8 +679,8 @@
 
                     <ImageView
                         android:id="@+id/imgi"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:src="@drawable/icon_i" />
 
                     <TextView
@@ -411,13 +698,13 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- 9: Mosque Azkar -->
+            <!-- Mosque Azkar -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardE"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_margin="6dp"
+                android:layout_margin="5dp"
                 app:cardBackgroundColor="@color/card_surface"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
@@ -433,8 +720,8 @@
 
                     <ImageView
                         android:id="@+id/imge"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:src="@drawable/icon_e" />
 
                     <TextView
@@ -450,13 +737,13 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- 10: Roqia -->
+            <!-- Roqia -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardRoqia"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_margin="6dp"
+                android:layout_margin="5dp"
                 app:cardBackgroundColor="@color/card_surface"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
@@ -472,8 +759,8 @@
 
                     <ImageView
                         android:id="@+id/roqia"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:src="@drawable/img_m6" />
 
                     <TextView
@@ -489,13 +776,35 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- 11: Free Apps / Links -->
+        </GridLayout>
+
+        <!-- Bottom Grouped Section: Favorites & About App Side by Side -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/ffon1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="أدوات ومعلومات"
+            android:textColor="@color/text_gold"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
+
+            <!-- Favorites (المفضلة) -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardFavorites"
                 android:layout_width="0dp"
-                android:id="@+id/about"
                 android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
                 app:cardBackgroundColor="@color/card_surface"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
@@ -507,11 +816,50 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="12dp">
+                    android:padding="14dp">
 
                     <ImageView
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:src="@drawable/ic_favorite_filled" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/ffon1"
+                        android:text="المفضلة"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- About App (عن التطبيق) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/about"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                app:cardBackgroundColor="@color/card_surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/card_stroke"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <ImageView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
                         android:src="@drawable/img_m8" />
 
                     <TextView
@@ -521,51 +869,14 @@
                         android:gravity="center"
                         android:text="عن التطبيق"
                         android:textColor="@color/text_primary"
-                        android:textSize="13sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
+
                 </LinearLayout>
+
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- 12: Masbaha -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardMasbaha"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="6dp"
-                app:cardBackgroundColor="@color/card_surface"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
-                app:strokeColor="@color/card_stroke"
-                app:strokeWidth="1dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <ImageView
-                        android:id="@+id/masbaha"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:src="@drawable/img_m3" />
-
-                    <TextView
-                        android:id="@+id/masbaha2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:gravity="center"
-                        android:text="المسبحة"
-                        android:textColor="@color/text_primary"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-        </GridLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

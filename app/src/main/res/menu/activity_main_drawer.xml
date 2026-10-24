@@ -5,6 +5,10 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_favorites"
+            android:icon="@drawable/ic_favorite_filled"
+            android:title="الأدعية المفضلة" />
+        <item
             android:id="@+id/maktbtiplus"
             android:icon="@drawable/ic_launcher_foreground"
             android:title="مكتبتي بلس" />

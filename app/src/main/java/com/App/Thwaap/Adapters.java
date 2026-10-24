@@ -46,8 +46,40 @@ public class Adapters extends RecyclerView.Adapter<Adapters.Holder> {
         }
 
         holder.binding.cards.setOnClickListener(v -> {
-            Intent intent = new Intent(context, Maintitle1.class);
-            intent.putExtra("title", item.getTexttt());
+            String title = item.getTexttt();
+            Intent intent;
+            if ("أدعية من القرآن الكريم".equals(title)) {
+                intent = new Intent(context, CategoryDetailActivity.class);
+                intent.putExtra(CategoryDetailActivity.EXTRA_CATEGORY_TYPE, CategoryDetailActivity.TYPE_QURAN);
+                intent.putExtra(CategoryDetailActivity.EXTRA_TITLE, title);
+            } else if ("أدعية من السنة النبوية".equals(title)) {
+                intent = new Intent(context, CategoryDetailActivity.class);
+                intent.putExtra(CategoryDetailActivity.EXTRA_CATEGORY_TYPE, CategoryDetailActivity.TYPE_SUNNAH);
+                intent.putExtra(CategoryDetailActivity.EXTRA_TITLE, title);
+            } else if ("أذكار بعد الصلاة".equals(title)) {
+                intent = new Intent(context, CategoryDetailActivity.class);
+                intent.putExtra(CategoryDetailActivity.EXTRA_CATEGORY_TYPE, CategoryDetailActivity.TYPE_POST_PRAYER);
+                intent.putExtra(CategoryDetailActivity.EXTRA_TITLE, title);
+            } else if ("أدعية وأذكار يوم الجمعة".equals(title)) {
+                intent = new Intent(context, CategoryDetailActivity.class);
+                intent.putExtra(CategoryDetailActivity.EXTRA_CATEGORY_TYPE, CategoryDetailActivity.TYPE_FRIDAY);
+                intent.putExtra(CategoryDetailActivity.EXTRA_TITLE, title);
+            } else if ("الاستغفار والتوبة".equals(title)) {
+                intent = new Intent(context, CategoryDetailActivity.class);
+                intent.putExtra(CategoryDetailActivity.EXTRA_CATEGORY_TYPE, CategoryDetailActivity.TYPE_ISTIGHFAR);
+                intent.putExtra(CategoryDetailActivity.EXTRA_TITLE, title);
+            } else if ("الصلاة على النبي ﷺ".equals(title)) {
+                intent = new Intent(context, CategoryDetailActivity.class);
+                intent.putExtra(CategoryDetailActivity.EXTRA_CATEGORY_TYPE, CategoryDetailActivity.TYPE_SALAWAT);
+                intent.putExtra(CategoryDetailActivity.EXTRA_TITLE, title);
+            } else if ("أذكار الكرب والهم والحزن".equals(title)) {
+                intent = new Intent(context, CategoryDetailActivity.class);
+                intent.putExtra(CategoryDetailActivity.EXTRA_CATEGORY_TYPE, CategoryDetailActivity.TYPE_DISTRESS);
+                intent.putExtra(CategoryDetailActivity.EXTRA_TITLE, title);
+            } else {
+                intent = new Intent(context, Maintitle1.class);
+                intent.putExtra("title", title);
+            }
             context.startActivity(intent);
         });
     }
