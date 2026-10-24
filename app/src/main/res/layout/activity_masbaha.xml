@@ -83,20 +83,20 @@
                 android:gravity="center"
                 android:text="سبحان الله"
                 android:textColor="@color/colorPrimary"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/jazeera"
                 android:gravity="center"
-                android:lineSpacingExtra="6dp"
+                android:lineSpacingExtra="3dp"
                 android:text="من قال سبحان الله وبحمده في يوم مائة مرة حطت خطاياه وإن كانت مثل زبد البحر"
                 android:textColor="@color/text_secondary"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
         </LinearLayout>
 

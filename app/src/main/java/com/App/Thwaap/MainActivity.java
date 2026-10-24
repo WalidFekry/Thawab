@@ -107,24 +107,21 @@ public class MainActivity extends AppCompatActivity
     private void setupClickListeners() {
         contentBinding.about.setOnClickListener(v -> startActivity(new Intent(this, about.class)));
 
-        contentBinding.imga.setOnClickListener(v -> navigateTo(Maintitle3.class, "اذكار الصباح"));
-        contentBinding.imgb.setOnClickListener(v -> navigateTo(MainMSa.class, null));
-        contentBinding.imgc.setOnClickListener(v -> navigateTo(Maintspea.class, "تسآبيح"));
-        contentBinding.imgd.setOnClickListener(v -> navigateTo(Maintitle2.class, "اذكار السفر"));
-        contentBinding.imge.setOnClickListener(v -> navigateTo(Maintitle2.class, "اذكار المسجد"));
-        contentBinding.imgf.setOnClickListener(v -> navigateTo(Maintitle2.class, "اذكار النوم"));
-        contentBinding.imgg.setOnClickListener(v -> navigateTo(Maintitle2.class, "اذكارالمنزل"));
-        contentBinding.imgh.setOnClickListener(v -> navigateTo(Main2Activity.class, null));
-        contentBinding.imgi.setOnClickListener(v -> navigateTo(Maintitle2.class, "الاسماء الحسني"));
+        contentBinding.cardA.setOnClickListener(v -> navigateTo(Maintitle3.class, "اذكار الصباح"));
+        contentBinding.cardB.setOnClickListener(v -> navigateTo(MainMSa.class, null));
+        contentBinding.cardC.setOnClickListener(v -> navigateTo(Maintspea.class, "تسآبيح"));
+        contentBinding.cardD.setOnClickListener(v -> navigateTo(Maintitle2.class, "اذكار السفر"));
+        contentBinding.cardE.setOnClickListener(v -> navigateTo(Maintitle2.class, "اذكار المسجد"));
+        contentBinding.cardF.setOnClickListener(v -> navigateTo(Maintitle2.class, "اذكار النوم"));
+        contentBinding.cardG.setOnClickListener(v -> navigateTo(Maintitle2.class, "اذكارالمنزل"));
+        contentBinding.cardH.setOnClickListener(v -> navigateTo(Main2Activity.class, null));
+        contentBinding.cardI.setOnClickListener(v -> navigateTo(Maintitle2.class, "الاسماء الحسني"));
 
-        contentBinding.masbaha.setOnClickListener(v -> navigateTo(MasbahaActivity.class, "المسبحة"));
-        contentBinding.masbaha2.setOnClickListener(v -> navigateTo(MasbahaActivity.class, "المسبحة"));
+        contentBinding.cardMasbaha.setOnClickListener(v -> navigateTo(MasbahaActivity.class, "المسبحة"));
 
-        contentBinding.qoutes.setOnClickListener(v -> navigateTo(QoutesActivity.class, "اقتباسات عشوائية"));
-        contentBinding.qoutes2.setOnClickListener(v -> navigateTo(QoutesActivity.class, "اقتباسات عشوائية"));
+        contentBinding.cardQoutes.setOnClickListener(v -> navigateTo(QoutesActivity.class, "اقتباسات عشوائية"));
 
-        contentBinding.roqia.setOnClickListener(v -> navigateTo(RoqiaNoIternet.class, "الرقية الشرعية"));
-        contentBinding.roqia2.setOnClickListener(v -> navigateTo(RoqiaNoIternet.class, "الرقية الشرعية"));
+        contentBinding.cardRoqia.setOnClickListener(v -> navigateTo(RoqiaNoIternet.class, "الرقية الشرعية"));
     }
 
     private void navigateTo(Class<?> targetActivity, String title) {
@@ -171,8 +168,8 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.webside) {
-            CommonUtils.openUrl(this, "https://application-muslim.blogspot.com/?m=1&fbclid=IwAR2JSI7LF7kK9hVfmyu50eoYLq_-dXmJlkWovnMRoGTxgXm_S7FFewa1PdI");
+        if (id == R.id.website) {
+            CommonUtils.openUrl(this, "https://walid-fekry.com");
         } else if (id == R.id.facegroub) {
             CommonUtils.openUrl(this, "https://www.facebook.com/groups/440403217380641");
         } else if (id == R.id.ratee) {
@@ -184,7 +181,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.shareee) {
             CommonUtils.shareText(this,
                     " تطبيق ثواب (Thawap) ",
-                    "\nقمنا بتصميم البرنامج ليكون بسيط و مجاني ليضم أذكار الصباح و المساء مكتوبة و أذكار المسلم بدون إنترنت و ليساعدك على أن لا تنسى ذكر الله ابداً .\n \nتفضل رابط تطبيق ثواب  https://play.google.com/store/apps/details?id=com.App.Thwaap \n",
+                    "قمنا بتصميم البرنامج ليكون بسيط و مجاني ليضم أذكار الصباح و المساء مكتوبة و أذكار المسلم بدون إنترنت و ليساعدك على أن لا تنسى ذكر الله ابداً .\n \nتفضل رابط تطبيق ثواب  https://play.google.com/store/apps/details?id=com.App.Thwaap \n",
                     "مشاركه تطبيق ثواب  مع الاصدقاء:");
         } else if (id == R.id.appshare2) {
             CommonUtils.openUrl(this, "https://www.facebook.com/sharer.php?u=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.App.Thwaap");

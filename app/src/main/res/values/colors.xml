@@ -16,6 +16,7 @@
     <color name="text_primary">#1E293B</color>
     <color name="text_secondary">#64748B</color>
     <color name="text_gold">#C68B59</color>
+    <color name="white">#FFFFFF</color>
 
     <!-- Legacy Compatibility Colors -->
     <color name="msgedazr">#160000</color>
@@ -51,6 +52,7 @@
     <color name="purple_bg_light">#F3E5F5</color>
     <color name="blue_bg_light">#E0F2F1</color>
     <color name="green_bg_light">#E8F5E9</color>
+
 
     <item name="black" type="color">#FF000000</item>
     <item name="blue" type="color">#FF0D5C63</item>

@@ -98,7 +98,7 @@ public class Main2Activity extends BaseActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.webside) {
+        if (id == R.id.website) {
             CommonUtils.openUrl(this, "https://application-muslim.blogspot.com/?m=1&fbclid=IwAR2JSI7LF7kK9hVfmyu50eoYLq_-dXmJlkWovnMRoGTxgXm_S7FFewa1PdI");
         } else if (id == R.id.facegroub) {
             CommonUtils.openUrl(this, "https://www.facebook.com/groups/440403217380641");

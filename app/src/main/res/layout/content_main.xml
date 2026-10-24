@@ -49,6 +49,7 @@
 
         <!-- Featured Banner Card: Quotes -->
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardQoutes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -98,6 +99,7 @@
 
             <!-- 1: Morning Azkar -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardA"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -136,6 +138,7 @@
 
             <!-- 2: Tasbeeh -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardC"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -174,6 +177,7 @@
 
             <!-- 3: Evening Azkar -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardB"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -212,6 +216,7 @@
 
             <!-- 4: Travel Azkar -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardD"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -250,6 +255,7 @@
 
             <!-- 5: General Duas -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardH"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -288,6 +294,7 @@
 
             <!-- 6: Sleep Azkar -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardF"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -326,6 +333,7 @@
 
             <!-- 7: Home Azkar -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardG"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -364,6 +372,7 @@
 
             <!-- 8: Asma Allah Al-Husna -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardI"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -393,6 +402,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
+                        android:maxLines="1"
+                        android:ellipsize="end"
                         android:text="الأسماء الحسنى"
                         android:textColor="@color/text_primary"
                         android:textSize="13sp"
@@ -402,6 +413,7 @@
 
             <!-- 9: Mosque Azkar -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardE"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -440,6 +452,7 @@
 
             <!-- 10: Roqia -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardRoqia"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -515,6 +528,7 @@
 
             <!-- 12: Masbaha -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardMasbaha"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
