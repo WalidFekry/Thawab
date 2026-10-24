@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        //CommonUtils.setupEdgeToEdge(this, binding.getRoot());
 
         contentBinding = binding.appBarMain.contentMain;
 
@@ -93,7 +92,6 @@ public class MainActivity extends AppCompatActivity
             e.printStackTrace();
         }
 
-        contentBinding.anima.startAnimation();
     }
 
     private void setupNavigationDrawer() {
@@ -107,7 +105,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void setupClickListeners() {
-        contentBinding.abouut.setOnClickListener(v -> startActivity(new Intent(this, about.class)));
+        contentBinding.about.setOnClickListener(v -> startActivity(new Intent(this, about.class)));
 
         contentBinding.imga.setOnClickListener(v -> navigateTo(Maintitle3.class, "اذكار الصباح"));
         contentBinding.imgb.setOnClickListener(v -> navigateTo(MainMSa.class, null));
@@ -120,24 +118,13 @@ public class MainActivity extends AppCompatActivity
         contentBinding.imgi.setOnClickListener(v -> navigateTo(Maintitle2.class, "الاسماء الحسني"));
 
         contentBinding.masbaha.setOnClickListener(v -> navigateTo(MasbahaActivity.class, "المسبحة"));
-        if (contentBinding.masbaha2 != null) {
-            contentBinding.masbaha2.setOnClickListener(v -> navigateTo(MasbahaActivity.class, "المسبحة"));
-        }
+        contentBinding.masbaha2.setOnClickListener(v -> navigateTo(MasbahaActivity.class, "المسبحة"));
 
         contentBinding.qoutes.setOnClickListener(v -> navigateTo(QoutesActivity.class, "اقتباسات عشوائية"));
-        if (contentBinding.qoutes2 != null) {
-            contentBinding.qoutes2.setOnClickListener(v -> navigateTo(QoutesActivity.class, "اقتباسات عشوائية"));
-        }
+        contentBinding.qoutes2.setOnClickListener(v -> navigateTo(QoutesActivity.class, "اقتباسات عشوائية"));
 
         contentBinding.roqia.setOnClickListener(v -> navigateTo(RoqiaNoIternet.class, "الرقية الشرعية"));
-        if (contentBinding.roqia2 != null) {
-            contentBinding.roqia2.setOnClickListener(v -> navigateTo(RoqiaNoIternet.class, "الرقية الشرعية"));
-        }
-
-        contentBinding.kenz.setOnClickListener(v -> CommonUtils.openUrl(this, "https://t.co/US34fsUZeW"));
-        if (contentBinding.kenz2 != null) {
-            contentBinding.kenz2.setOnClickListener(v -> CommonUtils.openUrl(this, "https://t.co/US34fsUZeW"));
-        }
+        contentBinding.roqia2.setOnClickListener(v -> navigateTo(RoqiaNoIternet.class, "الرقية الشرعية"));
     }
 
     private void navigateTo(Class<?> targetActivity, String title) {

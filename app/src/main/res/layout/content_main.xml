@@ -15,66 +15,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Top Greeting & Animation Card -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardBackgroundColor="@color/card_surface"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="2dp"
-            app:strokeColor="@color/card_stroke"
-            app:strokeWidth="1dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp">
-
-                <com.cleveroad.androidmanimation.LoadingAnimationView
-                    android:id="@+id/anima"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
-                    app:lav_backgroundColor="@android:color/transparent"
-                    app:lav_firstColor="#E5A93C"
-                    app:lav_fourthColor="@color/colorPrimary"
-                    app:lav_secondColor="#800D5C63"
-                    app:lav_speedCoefficient="1.0"
-                    app:lav_thirdColor="#26A69A"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/textcon"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginEnd="12dp"
-                    android:textColor="@color/text_primary"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/abouut"
-                    app:layout_constraintStart_toEndOf="@+id/anima"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <net.steamcrafted.materialiconlib.MaterialIconView
-                    android:id="@+id/abouut"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:scaleType="center"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:materialIcon="information_outline"
-                    app:materialIconColor="@color/colorPrimary"
-                    app:materialIconSize="28dp" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
         <!-- Shimmer Header Quote Card -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -138,7 +78,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/ffon1"
-                    android:text="اقتباسات ورسائل أمل يومية ✨"
+                    android:text="اقتباسات ورسائل أمل يومية"
                     android:textColor="@color/text_primary"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -539,6 +479,7 @@
             <!-- 11: Free Apps / Links -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="0dp"
+                android:id="@+id/about"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_margin="6dp"
@@ -556,18 +497,16 @@
                     android:padding="12dp">
 
                     <ImageView
-                        android:id="@+id/kenz"
                         android:layout_width="56dp"
                         android:layout_height="56dp"
                         android:src="@drawable/img_m8" />
 
                     <TextView
-                        android:id="@+id/kenz2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:text="تطبيقات نافعة"
+                        android:text="عن التطبيق"
                         android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
