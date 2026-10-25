@@ -69,7 +69,7 @@ public class about extends AppCompatActivity {
         binding.gmmailc.setOnClickListener(v -> CommonUtils.sendEmail(this, "prowalidkfekry@gmail.com", "رسالة إلى مطور تطبيق ثواب 📲", "اكتب رسالتك هنا"));
         binding.shearc.setOnClickListener(v -> CommonUtils.shareText(this,
                 " تطبيق ثواب (Thawap) ",
-                "\nقمنا بتصميم البرنامج ليكون بسيط و مجاني ليضم أذكار الصباح و المساء مكتوبة و أذكار المسلم بدون إنترنت و ليساعدك على أن لا تنسى ذكر الله ابداً .\n \nتفضل رابط تطبيق ثواب  https://play.google.com/store/apps/details?id=com.App.Thwaap \n",
+                "قمنا بتصميم البرنامج ليكون بسيط و مجاني ليضم أذكار الصباح و المساء مكتوبة و أذكار المسلم بدون إنترنت و ليساعدك على أن لا تنسى ذكر الله ابداً .\n \nتفضل رابط تطبيق ثواب  https://play.google.com/store/apps/details?id=com.App.Thwaap \n",
                 "مشاركه تطبيق ثواب  مع الاصدقاء:"));
         binding.rratec.setOnClickListener(v -> CommonUtils.openPlayStore(this));
         binding.googleplayc.setOnClickListener(v -> CommonUtils.openUrl(this, "https://t.co/US34fsUZeW"));
