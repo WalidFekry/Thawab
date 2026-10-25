@@ -7,7 +7,7 @@ android {
         applicationId "com.App.Thwaap"
         minSdkVersion 24
         targetSdkVersion 37
-        versionCode 23
+        versionCode 24
         versionName "3.0"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         multiDexEnabled true
@@ -50,7 +50,6 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:5.5.1'
     implementation 'androidx.recyclerview:recyclerview:1.4.0'
     implementation 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
-    implementation 'com.github.TecOrb-Developers:SmartAlertDialog:v1.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.airbnb.android:lottie:6.7.1'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:2.4.10"
