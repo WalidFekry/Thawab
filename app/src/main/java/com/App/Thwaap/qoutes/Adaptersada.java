@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.App.Thwaap.R;
 import com.App.Thwaap.databinding.ItemReslatfoalBinding;
 import com.App.Thwaap.utils.CommonUtils;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 import java.util.Random;
@@ -53,10 +52,6 @@ public class Adaptersada extends RecyclerView.Adapter<Adaptersada.Holder2> {
             holder.binding.messageTime.setText(item.getCreatedAt().split(" ")[0]);
         } else {
             holder.binding.messageTime.setText("2021-01-05");
-        }
-
-        if (item.getImageurl() != null && !item.getImageurl().isEmpty()) {
-            Picasso.get().load(item.getImageurl()).into(holder.binding.imagggg);
         }
 
         holder.binding.sharequran.setOnClickListener(v -> {
