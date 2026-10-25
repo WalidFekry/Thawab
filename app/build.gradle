@@ -14,7 +14,8 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -36,7 +37,6 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.8.0'
     implementation 'com.github.code-mc:material-icon-lib:1.1.5'
     implementation 'com.github.iammert:ScalingLayout:1.2.1'
-    implementation 'com.github.bumptech.glide:glide:5.0.9'
     implementation 'com.romainpiel.shimmer:library:1.4.0@aar'
     implementation 'com.google.android.material:material:1.14.0'
     implementation 'androidx.cardview:cardview:1.0.0'
